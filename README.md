@@ -16,7 +16,7 @@ Here is a list of what you will find and a brief explanation of what each file i
 
 | Worksheet Tab | Description |
 | ------ | ----------- |
-| TQConnection.py| This is the connection class that contains the HTTP protocal as well as the running acount balance, etc.. |
+| TQConnection.py| This is the connection class that contains the HTTP protocol as well as the running account balance, etc.. |
 | TQParams.py | Contains all the functions that build the request parameters.  |
 | TQResponse.py  | The Response class that consumes the response store in XML|
 | TQConfig.py | Keeps configuration parameters that later on can be passed on from the argument line when you write your program.|
@@ -38,7 +38,7 @@ Here is a list of what you will find and a brief explanation of what each file i
 ## What can we do better?
 Any comments, feedback, question? just drop us a line.
 
-<p align="left"><a href="https://treasuryquants.com/"> <img src="https://github.com/treasuryquants/examples/raw/main/assets/logoBlackSmall.png" width="300"></p>
+<p align="left"><a href="https://treasuryquants.com/"> <img src="https://github.com/treasuryquants/examples/raw/main/assets/logoBlackSmall.png" width="300">
 <p align="left">
 Email: <a href="mailto:contact@treasuryquants.com">contact@treasuryquants.com</a><br>
 Website: <a href="https://treasuryquants.com/" target="_blank">TreasuryQuants.com</a><br>
