@@ -14,7 +14,7 @@ Once you opened your account you would have ample free credit in your account to
 ## 2. Getting around the python files
 Here is a list of what you will find and a brief explanation of what each file is about.
 
-| Worksheet Tab | Description |
+| Files | Description |
 | ------ | ----------- |
 | TQConnection.py| This is the connection class that contains the HTTP protocol as well as the running account balance, etc.. |
 | TQParams.py | Contains all the functions that build the request parameters.  |
