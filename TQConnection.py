@@ -49,6 +49,7 @@ class Connection:
             email, is_post, url, minutes_to_expiry,
             token, expiry, cost, balance, client_id, source_id, 
         """
+        self.response = TQResponse()
         self.email = email
         self.url = url
         self.token = ""
@@ -58,9 +59,8 @@ class Connection:
         self.client_id = ""
         self.source_id = ""
         self.__minutes_to_expiry = minutes_to_expiry
-        #self.__has_been_initialised = False
-        self.is_post=is_post
-
+        # self.__has_been_initialised = False
+        self.is_post = is_post
 
     def send(self, request):
         """
@@ -83,8 +83,8 @@ class Connection:
         - checks if token is needed
             -- generate token, if previous token expired 
         """
-        param_dictionary=request.params
-        request_needs_token=request.needs_token
+        param_dictionary = request.params
+        request_needs_token = request.needs_token
         if request_needs_token:
             # add token here
             now = datetime.datetime.now()
@@ -103,8 +103,8 @@ class Connection:
         - checks if token is needed
             -- generate token, if previous token expired 
         """
-        param_dictionary=request.params
-        request_needs_token=request.needs_token
+        param_dictionary = request.params
+        request_needs_token = request.needs_token
         if request_needs_token:
             # add token here
             now = datetime.datetime.now()
@@ -116,7 +116,6 @@ class Connection:
                 self.token = list(message.content.values())[0]
             param_dictionary['token'] = self.token
         return self.__get(param_dictionary)
-
 
     def __result_to_message(self, result):
         """
@@ -136,6 +135,7 @@ class Connection:
         self.balance = store.response.balance
         self.cost = store.response.cost
         self.expiry = datetime.datetime.now() + datetime.timedelta(store.response.expiry_minutes * 60)
+        self.response = store.response
 
         if (store.response.errors is None or len(store.response.errors) > 0):
             return Message(False, store.response.errors)
@@ -162,7 +162,6 @@ class Connection:
             errors = dict()
             errors["Error"] = str(e)
             return Message(False, errors)
-
 
     def __get(self, param_dictionary):
         """
