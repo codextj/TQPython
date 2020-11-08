@@ -1,6 +1,7 @@
 """
 Prepares TQ Request Instance with a configuration to hit 
-Corresponding API endpoint for a request_Method
+Corresponding API endpoint for a request_Method.
+They replalce the key:value pair dictionary for each API with functions and arguments.
 
 Eg: 
 request_ip_return(): http://77.68.119.98/?function_name=ip_return
