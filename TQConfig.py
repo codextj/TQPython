@@ -12,7 +12,7 @@ GitHub Description:
 # email: contact@treasuryquants.com
 # Note: this software is provided "as-is" under the agreed terms of your account.
 #       For more information see https://treasuryquants.com/terms-of-services/
-email = "shahram_alavian@yahoo.com"
+email = "your.email@adress.here"
 url = "http://operations.treasuryquants.com/"
 
 # False=Get and True=Post #many users try these examples from behind firewall. So Get is the only
