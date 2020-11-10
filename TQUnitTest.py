@@ -1,10 +1,14 @@
-import TQRequests
+import TQResponse
 from TQConnection import Connection, Message
-
+import TQRequests
 
 class ParamBuilder:
-    def validate_mandatory(self, required_arguments, param):
 
+    def make_request(self,param):
+        return TQRequests.Request(param,True)
+
+
+    def validate_mandatory(self, required_arguments, param):
         missing_arguments = []
         for argument in required_arguments:
             if argument not in param:
@@ -22,17 +26,6 @@ class ParamBuilder:
         return Message(True, "")
 
 
-# describe
-# market_fx_rates
-# market_swap_rates
-# pnl_attribute
-# pnl_predict
-# price
-# price_fx_forward
-# price_vanilla_swap
-# risk_ladder
-# show_available
-# workspace
 
 class ValidatorDescribe(ParamBuilder):
     def validate(self, param):
@@ -137,7 +130,6 @@ class ValidatorPnLAttribute(ParamBuilder):
     _required_arguments = ['load_as', 'from_date', 'to_date']
 
 
-
 class Runner:
     def __init__(self, email):
         self.__param_factory = {
@@ -156,13 +148,33 @@ class Runner:
             return Message(False, "function_name '" + function_name + "' is not recognised.")
         param_builder = self.__param_factory[function_name]
         message = param_builder.validate(params)
-        if not message.is_OK:
+        if not message.is_ok:
             return message
         return Message(True, "")
 
     def send(self, params):
-        message = self.connection.send(params)
+        function_name = params['function_name']
+        param_builder = self.__param_factory[function_name]
+        request = param_builder.make_request(params)
+        message = self.connection.send(request)
         return message
 
     def get_response(self):
         return self.connection.response
+
+
+runner = Runner("shahram_alavian@yahoo.com")
+param_describe={'function_name':'describe'}
+message=runner.validate(param_describe)
+if not message.is_ok:
+    print(message.is_ok,message.content)
+    exit()
+
+message=runner.send(param_describe)
+if not message.is_ok:
+    print(message.is_ok,message.content)
+    exit()
+
+response=runner.get_response()
+
+print(response.results,response.errors)

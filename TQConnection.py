@@ -49,7 +49,7 @@ class Connection:
             email, is_post, url, minutes_to_expiry,
             token, expiry, cost, balance, client_id, source_id, 
         """
-        self.response = TQResponse()
+        self.response = TQResponse.Response()
         self.email = email
         self.url = url
         self.token = ""
