@@ -20,8 +20,8 @@ connection = TQConnection.Connection()
 #
 request_ip_return = TQRequests.request_ip_return()
 message = connection.send(request_ip_return)
-if not message.is_ok:
-    print(message.is_ok, message.content)
+if not message.is_OK:
+    print(message.is_OK, message.content)
     exit
 
 
@@ -38,10 +38,10 @@ to_date = asof
 for base_currency in currencies:
     request_function_market_fx_rates = TQRequests.request_function_market_fx_rates(asof, to_date, base_currency)
     message = connection.send(request_function_market_fx_rates)
-    if not message.is_ok:
-        print(message.is_ok, message.content)
+    if not message.is_OK:
+        print(message.is_OK, message.content)
         exit
-    print("result status:{} cost:{} balance:{} content:{}".format(message.is_ok,connection.cost,connection.balance, message.content))
+    print("result status:{} cost:{} balance:{} content:{}".format(message.is_OK,connection.cost,connection.balance, message.content))
 
 print('\n')
 #
@@ -51,7 +51,7 @@ to_date = "20211023"  # 1 year forward
 for base_currency in currencies:
     request_function_market_fx_rates = TQRequests.request_function_market_fx_rates(asof, to_date, base_currency)
     message = connection.send(request_function_market_fx_rates)
-    if not message.is_ok:
-        print(message.is_ok, message.content)
+    if not message.is_OK:
+        print(message.is_OK, message.content)
         exit
-    print("result status:{} cost:{} balance:{} content:{}".format(message.is_ok,connection.cost,connection.balance, message.content))
+    print("result status:{} cost:{} balance:{} content:{}".format(message.is_OK,connection.cost,connection.balance, message.content))

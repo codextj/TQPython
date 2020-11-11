@@ -20,8 +20,8 @@ connection = TQConnection.Connection()
 #
 request_ip_return = TQRequests.request_ip_return()
 message = connection.send(request_ip_return)
-if not message.is_ok:
-    print(message.is_ok, message.content)
+if not message.is_OK:
+    print(message.is_OK, message.content)
     exit
 
 
@@ -33,7 +33,7 @@ if not message.is_ok:
 param_describe= TQRequests.request_function_show_available()
 message_show_available=connection.send(param_describe)
 
-print("result status:{} cost:{} balance:{} content:{}".format(message_show_available.is_ok
+print("result status:{} cost:{} balance:{} content:{}".format(message_show_available.is_OK
                                                               ,connection.cost
                                                               ,connection.balance
                                                               , message_show_available.content))

@@ -29,8 +29,8 @@ connection = TQConnection.Connection()
 #
 request_ip_return = TQRequests.request_ip_return()
 message = connection.send(request_ip_return)
-if not message.is_ok:
-    print(message.is_ok, message.content)
+if not message.is_OK:
+    print(message.is_OK, message.content)
     exit
 
 # Step 1: Ask for an activation key. (Keep below commented out except for when you are sking for an activation key)
@@ -38,10 +38,10 @@ if not message.is_ok:
 
 # request_account_send_activation_key = TQRequests.request_account_send_activation_key(connection.email)
 # message = connection.send(request_account_send_activation_key)
-# if not message.is_ok:
-#     print(message.is_ok, message.content)
+# if not message.is_OK:
+#     print(message.is_OK, message.content)
 #     exit
-# print("result status:{} cost:{} balance:{} content:{}".format(message.is_ok,connection.cost,connection.balance, message.content))
+# print("result status:{} cost:{} balance:{} content:{}".format(message.is_OK,connection.cost,connection.balance, message.content))
 
 
 
@@ -54,10 +54,10 @@ if not message.is_ok:
 
 # request_account_reset= TQRequests.request_account_reset('hyky-r8ur8npw1sr8ubz-cfenh1vbpofs7ridnth1tc0esxrbahcrg',connection.email,"RockStar@24cdx",connection.source_id)
 # message = connection.send(request_account_reset)
-# if not message.is_ok:
-#     print(message.is_ok, message.content)
+# if not message.is_OK:
+#     print(message.is_OK, message.content)
 #     exit
-# print("result status:{} cost:{} balance:{} content:{}".format(message.is_ok,connection.cost,connection.balance, message.content))
+# print("result status:{} cost:{} balance:{} content:{}".format(message.is_OK,connection.cost,connection.balance, message.content))
 
 
 

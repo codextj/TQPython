@@ -17,18 +17,18 @@ import TQConfig, TQResponse, TQRequests
 
 
 class Message:
-    def __init__(self, is_ok, content):
+    def __init__(self, is_OK, content):
         """
         Initializes Message Class object.
 
         Args:
-            is_ok: Type[bool], False <- Response Error | True <- Response Result.
+            is_OK: Type[bool], False <- Response Error | True <- Response Result.
             content: Type[dict].
 
         Raises:
             Exception: Message was created with an object that was not a dictionary. 
         """
-        self.is_ok = is_ok
+        self.is_OK = is_OK
         if not type(content) is dict:
             Exception("Message was created with an object that was not a dictionary.")
         self.content = content
@@ -49,7 +49,7 @@ class Connection:
             email, is_post, url, minutes_to_expiry,
             token, expiry, cost, balance, client_id, source_id, 
         """
-        self.response = TQResponse()
+        self.response = TQResponse.Response()
         self.email = email
         self.url = url
         self.token = ""
@@ -91,7 +91,7 @@ class Connection:
             if (self.expiry - now).total_seconds() / 60 < self.__minutes_to_expiry:
                 request_account_token_create = TQRequests.request_account_token_create(self.email)
                 message = self.__post(request_account_token_create.params)
-                if not message.is_ok:
+                if not message.is_OK:
                     return message
                 self.token = list(message.content.values())[0]
             param_dictionary['token'] = self.token
@@ -111,7 +111,7 @@ class Connection:
             if (self.expiry - now).total_seconds() / 60 < self.__minutes_to_expiry:
                 request_account_token_create = TQRequests.request_account_token_create(self.email)
                 message = self.__get(request_account_token_create.params)
-                if not message.is_ok:
+                if not message.is_OK:
                     return message
                 self.token = list(message.content.values())[0]
             param_dictionary['token'] = self.token

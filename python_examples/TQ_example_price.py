@@ -21,8 +21,8 @@ connection = TQConnection.Connection()
 #
 request_ip_return = TQRequests.request_ip_return()
 message = connection.send(request_ip_return)
-if not message.is_ok:
-    print(message.is_ok, message.content)
+if not message.is_OK:
+    print(message.is_OK, message.content)
     exit
 
 
@@ -55,9 +55,9 @@ market_swap_rates = TQRequests.request_function_price_vanilla_swap(
         , save_as = tradeId # "save_as" is optional for when you want to save your trade in your workspace. For example, for risking later on.
 )
 message = connection.send(market_swap_rates)
-print("result status:{} cost:{} balance:{} content:{}".format(message.is_ok,connection.cost,connection.balance, message.content))
+print("result status:{} cost:{} balance:{} content:{}".format(message.is_OK,connection.cost,connection.balance, message.content))
 
-if not message.is_ok:
+if not message.is_OK:
         exit
 
 
@@ -67,7 +67,7 @@ if not message.is_ok:
 #
 request_price = TQRequests.request_function_price(asof, tradeId)
 message = connection.send(request_price)
-print("result status:{} cost:{} balance:{} content:{}".format(message.is_ok,connection.cost,connection.balance, message.content))
+print("result status:{} cost:{} balance:{} content:{}".format(message.is_OK,connection.cost,connection.balance, message.content))
 
 
 #
@@ -75,4 +75,4 @@ print("result status:{} cost:{} balance:{} content:{}".format(message.is_ok,conn
 #
 function_workspace_delete_file = TQRequests.request_function_workspace_delete_file(tradeId)
 message = connection.send(function_workspace_delete_file)
-print("result status:{} cost:{} balance:{} content:{}".format(message.is_ok,connection.cost,connection.balance, message.content))
+print("result status:{} cost:{} balance:{} content:{}".format(message.is_OK,connection.cost,connection.balance, message.content))

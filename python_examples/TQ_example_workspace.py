@@ -8,7 +8,7 @@ import TQConnection
 # API: workspace
 # Explanation: It lists all the saved files in your workspace and provides ability to delete any of the saved files.
 # Arguments: Run this API as two different configurations:
-#            configuration 1: argument: 'listl' value: 'all' (see request_function_workspace_show_files)
+#            configuration 1: argument: 'list' value: 'all' (see request_function_workspace_show_files)
 #            configuration 1: argument: 'delete' value: <file_id> (see request_function_workspace_delete_file)
 #            Note that we have given two different API names (request_function_workspace_show_files and
 #            request_function_workspace_delete_file) in this example
@@ -25,12 +25,12 @@ connection = TQConnection.Connection()
 #
 request_ip_return = TQRequests.request_ip_return()
 message = connection.send(request_ip_return)
-if not message.is_ok:
-    print(message.is_ok, message.content)
+if not message.is_OK:
+    print(message.is_OK, message.content)
     exit
 
-
-print("result status:{} cost:{} balance:{} content:{}".format(message.is_ok,connection.cost,connection.balance, message.content))
+print("result status:{} cost:{} balance:{} content:{}".format(message.is_OK, connection.cost, connection.balance,
+                                                              message.content))
 
 #
 # Get the list of all saved files
