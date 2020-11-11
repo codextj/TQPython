@@ -19,8 +19,8 @@ connection = TQConnection.Connection()
 #
 request_ip_return = TQRequests.request_ip_return()
 message = connection.send(request_ip_return)
-if not message.is_ok:
-    print(message.is_ok, message.content)
+if not message.is_OK:
+    print(message.is_OK, message.content)
     exit
 
 
@@ -35,5 +35,5 @@ currencies = ['chf', 'eur', 'usd', 'gbp', 'jpy']
 for currency in currencies:
     market_swap_rates = TQRequests.request_function_market_swap_rates('20201023', currency)
     message = connection.send(market_swap_rates)
-    print("result status:{} cost:{} balance:{} content:{}".format(message.is_ok,connection.cost,connection.balance, message.content))
+    print("result status:{} cost:{} balance:{} content:{}".format(message.is_OK,connection.cost,connection.balance, message.content))
 

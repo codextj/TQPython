@@ -12,9 +12,15 @@ GitHub Description:
 # email: contact@treasuryquants.com
 # Note: this software is provided "as-is" under the agreed terms of your account.
 #       For more information see https://treasuryquants.com/terms-of-services/
+
+
+# placing email here helps with running examples but you should have it as an inline command arguments
 email = "shahram_alavian@yahoo.com"
+
+
+# target url
 url = "http://operations.treasuryquants.com/"
 
 # False=Get and True=Post #many users try these examples from behind firewall. So Get is the only
 # method that works.
-is_http_post=False
+is_http_post = False

@@ -26,8 +26,8 @@ connection = TQConnection.Connection()
 #
 request_ip_return = TQRequests.request_ip_return()
 message = connection.send(request_ip_return)
-if not message.is_ok:
-    print(message.is_ok, message.content)
+if not message.is_OK:
+    print(message.is_OK, message.content)
     exit
 
 
@@ -36,10 +36,10 @@ if not message.is_ok:
 #
 request_function_describe = TQRequests.request_function_describe() #no arguments passed
 message_describe = connection.send(request_function_describe)
-if not message_describe.is_ok:
-    print(message_describe.is_ok, message_describe.content)
+if not message_describe.is_OK:
+    print(message_describe.is_OK, message_describe.content)
     exit
-print("result status:{} cost:{} balance:{} content:{}".format(message.is_ok,connection.cost,connection.balance, message.content))
+print("result status:{} cost:{} balance:{} content:{}".format(message.is_OK,connection.cost,connection.balance, message.content))
 
 for key, description in message_describe.content.items():
     print("{}: {}".format(key, description))
@@ -52,8 +52,8 @@ for key, description in message_describe.content.items():
 for function_name, description in message_describe.content.items():
     request_function_describe = TQRequests.request_function_describe(function_name)
     message = connection.send(request_function_describe)
-    if not message.is_ok:
-        print(message.is_ok, message.content)
+    if not message.is_OK:
+        print(message.is_OK, message.content)
         exit
     print("Describe:{}".format(function_name)) # pass the name of the API as the argument
     for key, description in message.content.items():

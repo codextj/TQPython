@@ -10,6 +10,7 @@ GitHub Description:
     Contains all the functions that build the request parameters.
 """
 
+
 # TreasuryQuants.com Ltd.
 # email: contact@treasuryquants.com
 # Note: this software is provided "as-is" under the agreed terms of your account.
@@ -25,12 +26,13 @@ class Request:
             params: Type[dict]
             needs_token: Type[bool]
         """
-        self.params=params
-        self.needs_token=needs_token
+        self.params = params
+        self.needs_token = needs_token
 
 
 class ParamBuilder:
     _function_name = 'function_name'
+
     def build(self, params, function_name, needs_token=True):
         """
         Args:
@@ -100,7 +102,6 @@ def request_account_create(email):
     return ParamBuilder().build(params, function_name='account_create', needs_token=False)
 
 
-
 #
 # General functions
 #
@@ -118,13 +119,16 @@ def request_function_show_available(item_name=""):
         params = {'element': item_name}
     return ParamBuilder().build(params, 'show_available')
 
-
     # workspace_show_files and workspace_delete_file use the same API workspace
+
+
 def request_function_workspace_show_files():
     params = {'list': 'all'}
     return ParamBuilder().build(params, 'workspace')
 
     # workspace_show_files and workspace_delete_file use the same API workspace
+
+
 def request_function_workspace_delete_file(file_name):
     params = {'delete': file_name}
     return ParamBuilder().build(params, 'workspace')
@@ -210,14 +214,17 @@ def request_function_price(asof, load_as):
     params = {'asof': asof, 'load_as': load_as}
     return ParamBuilder().build(params, 'price')
 
+
 def request_function_risk_ladder(asof, load_as):
     params = {'asof': asof, 'load_as': load_as}
     return ParamBuilder().build(params, 'risk_ladder')
 
+
 def request_function_pnl_predict(load_as, from_date, to_date):
-    params = {'load_as': load_as,'from_date': from_date,'to_date': to_date }
+    params = {'load_as': load_as, 'from_date': from_date, 'to_date': to_date}
     return ParamBuilder().build(params, 'pnl_predict')
 
+
 def request_function_pnl_attribute(load_as, from_date, to_date):
-    params = {'load_as': load_as,'from_date': from_date,'to_date': to_date }
+    params = {'load_as': load_as, 'from_date': from_date, 'to_date': to_date}
     return ParamBuilder().build(params, 'pnl_attribute')

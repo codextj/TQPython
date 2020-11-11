@@ -27,8 +27,8 @@ connection = TQConnection.Connection()
 #
 request_ip_return = TQRequests.request_ip_return()
 message = connection.send(request_ip_return)
-if not message.is_ok:
-    print(message.is_ok, message.content)
+if not message.is_OK:
+    print(message.is_OK, message.content)
     exit
 
 
@@ -47,5 +47,5 @@ market_fx_forward = TQRequests.request_function_price_fx_forward(
     # , save_as = 'test_fx_forward.xml' # save_as is optional for if you want to save your trade in your workspace. For example, for risking later on.
 )
 message = connection.send(market_fx_forward)
-print("result status:{} cost:{} balance:{} content:{}".format(message.is_ok,connection.cost,connection.balance, message.content))
+print("result status:{} cost:{} balance:{} content:{}".format(message.is_OK,connection.cost,connection.balance, message.content))
 

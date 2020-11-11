@@ -1,0 +1,3 @@
+from_date=[date] - Initial date for which the sensitivities are calculated.
+load_as=[string] - Reference name of the trade that has already been saved.
+to_date=[date] - Next date for which the PnL is predicted.
