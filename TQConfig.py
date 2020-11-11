@@ -15,7 +15,7 @@ GitHub Description:
 
 
 # placing email here helps with running examples but you should have it as an inline command arguments
-email = "shahram_alavian@yahoo.com"
+email = "your.email@address.here"
 
 
 # target url
