@@ -4,7 +4,7 @@ Handles Treasury Quants API Call
 - POST
 
 GitHub Description:
-    This is the connection class that contains the HTTP protocal as well as the running acount balance, etc..
+    This is the connection class that contains the HTTP protocol as well as the running acount balance, etc..
 """
 
 # TreasuryQuants.com Ltd.
