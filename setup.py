@@ -1,7 +1,7 @@
 from setuptools import setup
 setup(name='TQapis',
 version='0.3',
-description='Python package to interact with TreasuryQuants.com Api',
+description='Python package to interact with TreasuryQuants.com APIs',
 url='https://github.com/treasuryquants/TQPython',
 author='Shahram Alavian',
 author_email='shahram_alavian@yahoo.com',
@@ -12,7 +12,7 @@ packages=['TQapis'],
 zip_safe=False,
 long_description=open('README.MD').read(),
 long_description_content_type='text/markdown',
-keywords =["Treasury", "Quant", "Treasury London", "TQ API", "Treasury API", "Quantitative Finance"],
+keywords =["Treasury", "Quant", "TreasuryQuants", "Swap", "Valuations", "Quantitative Finance"],
 install_requires=[
     "requests"
 ])

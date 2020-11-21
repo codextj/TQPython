@@ -1,21 +1,8 @@
 """
 Once you have registered your account through Treasury Quants API 
-(see python_example:TQ_example_account_create_account.py) and
+(see python_example:TQ_example_account_apis.py) and
 Installed TQapis package, You can run this script to Test
-that everything is working fine for your registered email
-
-On Success you will see below message:
-
-unit_describe OK
-unit_describe_element_pnl_predict OK   
-unit_market_fx_rates OK
-unit_market_swap_rates OK
-unit_pnl_attribute OK
-unit_pnl_predict New results generated!
-unit_price OK
-unit_price_vanilla_swap OK
-unit_risk_ladder OK
-unit_worspace OK
+that everything is working fine for your registered email.
 """
 
 import os, pathlib
@@ -45,18 +32,6 @@ class RequestBuilder:
             return Message(False, error_message)
         return Message(True, "")
 
-
-# describe
-# market_fx_rates
-# market_swap_rates
-# pnl_attribute
-# pnl_predict
-# price
-# price_fx_forward
-# price_vanilla_swap
-# risk_ladder
-# show_available
-# workspace
 
 class ValidatorDescribe(RequestBuilder):
     def validate(self, param):
@@ -164,9 +139,9 @@ class ValidatorPnLAttribute(RequestBuilder):
         return self.validate_mandatory(self._required_arguments, param)
 
 
-def delete_file(new_result_file_path):
+def delete_file(result_new_file_path):
     try:
-        os.remove(new_result_file_path)
+        os.remove(result_new_file_path)
     except:
         pass
     return Message(True, "")
@@ -241,7 +216,7 @@ def read_unit_file(file_path, section_tag, delimiter, comment):
 
 
 class Runner:
-    def __init__(self, email):
+    def __init__(self, email,is_post,target_url):
         self.__param_factory = {
             'describe': ValidatorDescribe()
             , 'market_fx_rates': ValidatorMarketFXRates()
@@ -255,7 +230,7 @@ class Runner:
             , 'price_vanilla_swap': ValidatorPriceVanillaSwap()
             , 'risk_ladder': ValidatorRiskLadder()
         }
-        self.connection = Connection(email, True)
+        self.connection = Connection(email,is_post,target_url)
 
     def validate(self, params):
         if 'function_name' not in params:
@@ -290,19 +265,19 @@ class Runner:
         return file_names
 
     def run(self, root_folder, request_extension='request', result_extension='result',
-            new_result_extension='result_new'):
+            result_new_extension='result_new'):
         report = dict()
         test_file_names = self.get_all_unit_file_names(root_folder, request_extension)
         for test_file_name in test_file_names:
             message = self.execute_unit_test(root_folder, test_file_name, request_extension, result_extension,
-                                             new_result_extension)
+                                             result_new_extension)
             status_result = "OK"
             if len(message.content) > 0:
                 status_result = message.content
             report[test_file_name] = status_result
         return report
 
-    def execute_unit_test(self, root_folder, test_file_name, request_extension, result_extension, new_result_extension):
+    def execute_unit_test(self, root_folder, test_file_name, request_extension="request", result_extension="result", result_new_extension="result_new"):
         delimiter_char = '='
         comment_char = '#'
         test_section_tag = "[test]"
@@ -310,10 +285,10 @@ class Runner:
 
         request_file_path = os.path.join(root_folder, test_file_name + "." + request_extension)
         result_file_path = os.path.join(root_folder, test_file_name + "." + result_extension)
-        new_result_file_path = os.path.join(root_folder, test_file_name + "." + new_result_extension)
+        result_new_file_path = os.path.join(root_folder, test_file_name + "." + result_new_extension)
 
         message, params = read_unit_file(request_file_path,test_section_tag, delimiter_char, comment_char)
-        new_results=list()
+        result_news=list()
         if not message.is_OK:
             return message
 
@@ -327,30 +302,55 @@ class Runner:
                 return message
 
             results = self.connection.response.results
-            new_results.append(results)
-            message = delete_file(new_result_file_path)
+            result_news.append(results)
+            message = delete_file(result_new_file_path)
             if not message.is_OK:
                 return message
 
         message, base_results = read_unit_file(result_file_path,result_section_tag, delimiter_char, comment_char)
         if (len(base_results) == 0):
-            message = write_unit_file(result_file_path,result_section_tag, new_results, delimiter_char, comment_char)
-        elif base_results != new_results:
-            message = write_unit_file(new_result_file_path,result_section_tag, new_results, delimiter_char, comment_char)
+            message = write_unit_file(result_file_path,result_section_tag, result_news, delimiter_char, comment_char)
+        elif base_results != result_news:
+            message = write_unit_file(result_new_file_path,result_section_tag, result_news, delimiter_char, comment_char)
             message.content = "New results generated!"
         return message
 
 
-def runtest(email):
+def runtestAll(folder,email,is_post, target_url):
     # print(pathlib.Path(__file__).parent.absolute().joinpath("tests_files"))
-    runner = Runner(email)
-    return runner.run(pathlib.Path(__file__).parent.absolute().joinpath("tests_files"))
+    runner = Runner(email, is_post, target_url)
+    return runner.run(folder)
+
+
+def run_test_single(root_folder, file_path,email,is_post, target_url):
+    # print(pathlib.Path(__file__).parent.absolute().joinpath("tests_files"))
+    runner = Runner(email,is_post, target_url)
+    status_result = "OK"
+    message=runner.execute_unit_test(root_folder,file_path)
+    if len(message.content) > 0:
+        status_result = message.content
+    report={file_path:status_result}
+    return report
 
 
 if __name__ == "__main__":
-    # if nothing get's printed check cwd
-    # print(f"cwd: {os.getcwd()}")
-    email = input("Enter your registered email: ")
-    report = runtest(email)
+    email = "shahram_alavian@yahoo.com"
+    target_url="http://operations.treasuryquants.com"#<-this is your active email account
+    is_post=True#<- True = use POST method and False = use GET method
+
+
+    single_file_name="unit_pnl_attribute"#<- test a single file for debugging
+    folder=pathlib.Path(__file__).parent.absolute().joinpath("tests_files")#<- test all files for reporting'
+
+    #
+    # run all the files inside a folder
+    #
+    # report = runtestAll(folder, email, is_post,target_url)
+    
+    #
+    # run a single test file
+    #
+    report =  run_test_single(folder,single_file_name,email,is_post,target_url)
+
     for key, value  in report.items():
         print(key, value)

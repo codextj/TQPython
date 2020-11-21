@@ -26,7 +26,7 @@ request_ip_return = TQRequests.request_ip_return()
 message = connection.send(request_ip_return)
 if not message.is_OK:
     print(message.is_OK, message.content)
-    input("press any key to exit")
+    input("press any key to exit()")
     exit()
 
 # Step 1: Ask for an activation key using you email address. (Keep below commented out except for when you are asking for an activation key)
@@ -37,7 +37,7 @@ request_account_create = TQRequests.request_account_create(connection.email)
 message = connection.send(request_account_create)
 if not message.is_OK:
     print(message.is_OK, message.content)
-    input("press any key to exit")
+    input("press any key to exit()")
     exit()
 
 print("\nresult status:{}\ncost:{}\nbalance:{}\ncontent:{}".format(message.is_OK,connection.cost,connection.balance, message.content))
@@ -62,7 +62,7 @@ request_account_reset= TQRequests.request_account_reset(activation_key, connecti
 message = connection.send(request_account_reset)
 if not message.is_OK:
     print(message.is_OK, message.content)
-    input("press any key to exit")
+    input("press any key to exit()")
     exit()
 
 print("\nresult status:{}\ncost:{}\nbalance:{}\ncontent:{}".format(message.is_OK,connection.cost,connection.balance, message.content))
