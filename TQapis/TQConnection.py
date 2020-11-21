@@ -11,6 +11,7 @@ GitHub Description:
 # email: contact@treasuryquants.com
 # Note: this software is provided "as-is" under the agreed terms of your account.
 #       For more information see https://treasuryquants.com/terms-of-services/
+
 import requests
 import datetime
 import TQConfig, TQResponse, TQRequests

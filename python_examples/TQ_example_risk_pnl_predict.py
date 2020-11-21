@@ -2,8 +2,8 @@
 # email: contact@treasuryquants.com
 # Note: this software is provided "as-is" under the agreed terms of your account.
 #       For more information see https://treasuryquants.com/terms-of-services/
-import TQRequests
-import TQConnection
+
+from TQapis import TQRequests, TQConnection
 
 # API: pnl_predict
 # Explanation: It calculates pnl predict of a saved trade between two dates.
@@ -16,7 +16,7 @@ import TQConnection
 #                    2) Calculate the Pnl predict of the trade using only the trade id.
 #                    3) Delete the trade to clean up this example. (see workspace example for more)
 
-connection = TQConnection.Connection()
+connection = TQConnection.Connection(email="your.email@address.here", is_post=False)
 #
 # Check if we have connections
 #
@@ -55,8 +55,9 @@ market_swap_rates = TQRequests.request_function_price_vanilla_swap(
         , save_as = tradeId # "save_as" is optional for when you want to save your trade in your workspace. For example, for risking later on.
 )
 message = connection.send(market_swap_rates)
-print("result status:{} cost:{} balance:{} content:{}".format(message.is_OK,connection.cost,connection.balance, message.content))
+print("\nresult status:{}\ncost:{}\nbalance:{}\ncontent:{}".format(message.is_OK,connection.cost,connection.balance, message.content))
 
+print("\n"+"-"*100)
 
 if not message.is_OK:
         exit
@@ -68,13 +69,15 @@ if not message.is_OK:
 #
 request_pnl_predict = TQRequests.request_function_pnl_predict(load_as=tradeId, from_date=yesterday, to_date=today)
 message = connection.send(request_pnl_predict)
-print("result status:{} cost:{} balance:{} content:{}".format(message.is_OK,connection.cost,connection.balance, message.content))
+print("\nresult status:{}\ncost:{}\nbalance:{}\ncontent:{}".format(message.is_OK,connection.cost,connection.balance, message.content))
 
-
+print("\n"+"-"*100)
 
 #
 # Step 3 - Delete the trade to clean up this example.
 #
 function_workspace_delete_file = TQRequests.request_function_workspace_delete_file(tradeId)
 message = connection.send(function_workspace_delete_file)
-print("result status:{} cost:{} balance:{} content:{}".format(message.is_OK,connection.cost,connection.balance, message.content))
+print("\nresult status:{}\ncost:{}\nbalance:{}\ncontent:{}".format(message.is_OK,connection.cost,connection.balance, message.content))
+
+print("\n"+"-"*100)

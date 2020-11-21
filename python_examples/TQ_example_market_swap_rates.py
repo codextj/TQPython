@@ -2,8 +2,8 @@
 # email: contact@treasuryquants.com
 # Note: this software is provided "as-is" under the agreed terms of your account.
 #       For more information see https://treasuryquants.com/terms-of-services/
-import TQRequests
-import TQConnection
+
+from TQapis import TQRequests, TQConnection
 
 # API: market_swap_rates
 # Explanation: It provides the market implied swap rates for various tenors.
@@ -13,7 +13,7 @@ import TQConnection
 #
 
 
-connection = TQConnection.Connection()
+connection = TQConnection.Connection(email="your.email@address.here", is_post=False)
 #
 # Check if we have connections
 #
@@ -35,5 +35,7 @@ currencies = ['chf', 'eur', 'usd', 'gbp', 'jpy']
 for currency in currencies:
     market_swap_rates = TQRequests.request_function_market_swap_rates('20201023', currency)
     message = connection.send(market_swap_rates)
-    print("result status:{} cost:{} balance:{} content:{}".format(message.is_OK,connection.cost,connection.balance, message.content))
-
+    print("\nresult status:{}\ncost:{}\nbalance:{}\ncontent:{}".format(message.is_OK,connection.cost,connection.balance, message.content))
+    print('_'*100)
+    
+print("\n"+"-"*100)
