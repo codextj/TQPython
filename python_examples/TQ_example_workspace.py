@@ -2,8 +2,8 @@
 # email: contact@treasuryquants.com
 # Note: this software is provided "as-is" under the agreed terms of your account.
 #       For more information see https://treasuryquants.com/terms-of-services/
-import TQRequests
-import TQConnection
+
+from TQapis import TQRequests, TQConnection
 
 # API: workspace
 # Explanation: It lists all the saved files in your workspace and provides ability to delete any of the saved files.
@@ -19,7 +19,7 @@ import TQConnection
 #
 # Notes: if you want to see how to save a file, see the risk example.
 
-connection = TQConnection.Connection()
+connection = TQConnection.Connection(email="your.email@address.here", is_post=False)
 #
 # Check if we have connections
 #
@@ -29,8 +29,9 @@ if not message.is_OK:
     print(message.is_OK, message.content)
     exit
 
-print("result status:{} cost:{} balance:{} content:{}".format(message.is_OK, connection.cost, connection.balance,
+print("\nresult status:{}\ncost:{}\nbalance:{}\ncontent:{}".format(message.is_OK, connection.cost, connection.balance,
                                                               message.content))
+print("\n"+"-"*100)
 
 #
 # Get the list of all saved files
@@ -40,7 +41,9 @@ message = connection.send(function_workspace_show_files)
 
 for file_name in message.content:
     print("{}".format(file_name))
-print('\n')
+
+print("\n"+"-"*100)
+
 #
 # Delete all saved files, one-by-one.
 #
@@ -48,4 +51,5 @@ for file_name in message.content:
     function_workspace_delete_file = TQRequests.request_function_workspace_delete_file(file_name)
     message = connection.send(function_workspace_delete_file)
     print("{}".format(file_name))
-print('\n')
+
+print("\n"+"-"*100)

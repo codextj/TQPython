@@ -2,8 +2,8 @@
 # email: contact@treasuryquants.com
 # Note: this software is provided "as-is" under the agreed terms of your account.
 #       For more information see https://treasuryquants.com/terms-of-services/
-import TQRequests
-import TQConnection
+
+from TQapis import TQRequests, TQConnection
 
 # API: market_fx_rates
 # Explanation: It provides the spot and market implied forward FX rates. We use ois curves for calculating the forwards.
@@ -14,7 +14,7 @@ import TQConnection
 #
 
 
-connection = TQConnection.Connection()
+connection = TQConnection.Connection(email="your.email@address.here", is_post=False)
 #
 # Check if we have connections
 #
@@ -41,9 +41,9 @@ for base_currency in currencies:
     if not message.is_OK:
         print(message.is_OK, message.content)
         exit
-    print("result status:{} cost:{} balance:{} content:{}".format(message.is_OK,connection.cost,connection.balance, message.content))
+    print("\nresult status:{}\ncost:{}\nbalance:{}\ncontent:{}".format(message.is_OK,connection.cost,connection.balance, message.content))
 
-print('\n')
+print("\n"+"-"*100)
 #
 # Get the forward FX rates by setting the to_date>asof. Note that we use currency.ois curve to build the forwards
 #
@@ -54,4 +54,4 @@ for base_currency in currencies:
     if not message.is_OK:
         print(message.is_OK, message.content)
         exit
-    print("result status:{} cost:{} balance:{} content:{}".format(message.is_OK,connection.cost,connection.balance, message.content))
+    print("\nresult status:{}\ncost:{}\nbalance:{}\ncontent:{}".format(message.is_OK,connection.cost,connection.balance, message.content))

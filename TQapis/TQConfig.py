@@ -17,10 +17,9 @@ GitHub Description:
 # placing email here helps with running examples but you should have it as an inline command arguments
 email = "your.email@address.here"
 
-
 # target url
 url = "http://operations.treasuryquants.com/"
 
-# False=Get and True=Post #many users try these examples from behind firewall. So Get is the only
-# method that works.
+# False=>Get and True=>Post 
+# many users try these examples from behind firewall, So Get is the only method that works.
 is_http_post = False

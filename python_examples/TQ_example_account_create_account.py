@@ -2,8 +2,8 @@
 # email: contact@treasuryquants.com
 # Note: this software is provided "as-is" under the agreed terms of your account.
 #       For more information see https://treasuryquants.com/terms-of-services/
-import TQRequests
-import TQConnection
+
+from TQapis import TQRequests, TQConnection
 
 # API: account_create and account_reset
 # Explanation:  Creation of a new account is a two-step process:
@@ -26,34 +26,45 @@ request_ip_return = TQRequests.request_ip_return()
 message = connection.send(request_ip_return)
 if not message.is_OK:
     print(message.is_OK, message.content)
-    exit
+    input("press any key to exit")
+    exit()
 
-# Step 1: Ask for an activation key using you email address. (Keep below commented out except for when you are sking for an activation key)
+# Step 1: Ask for an activation key using you email address. (Keep below commented out except for when you are asking for an activation key)
 #         otherwise, it will give an error telling you that the email already exists.
 
-# request_account_create = TQRequests.request_account_create("your.email@address.here")
-# message = connection.send(request_account_create)
-# if not message.is_OK:
-#     print(message.is_OK, message.content)
-#     exit
-# print("result status:{} cost:{} balance:{} content:{}".format(message.is_OK,connection.cost,connection.balance, message.content))
+connection.email=input("Enter your email address: ")
+request_account_create = TQRequests.request_account_create(connection.email)
+message = connection.send(request_account_create)
+if not message.is_OK:
+    print(message.is_OK, message.content)
+    input("press any key to exit")
+    exit()
 
+print("\nresult status:{}\ncost:{}\nbalance:{}\ncontent:{}".format(message.is_OK,connection.cost,connection.balance, message.content))
 
+print("\n"+"-"*100)
 
 # Step 2: Use:
-# make sure to comment out the previous request. Otherwise, you will be sent another key rendering the recent one invalid.
+# If you have already received an activation key make sure to comment out the previous request.
+# Otherwise, you will be sent another key rendering the recent one invalid.
 # 1) the activation key sent to your email,
 # 2) a same/new password and
 # 3) the IP of the computer from which you will initiate your requests
 # to reset your account.
 
-# request_account_reset= TQRequests.request_account_reset('xkq-kt0fcpoeemb9zp1vpouqvprjn-7vs4d2seqw-mx5kemluifilq',connection.email,"RockStar@24cdx",connection.source_id)
-# message = connection.send(request_account_reset)
-# if not message.is_OK:
-#     print(message.is_OK, message.content)
-#     exit
-# print("result status:{} cost:{} balance:{} content:{}".format(message.is_OK,connection.cost,connection.balance, message.content))
+# [not_important] TODO: check length, it should be equal to 54
+activation_key = input("Enter/paste the activation key sent to your email: ")
 
+# [not_important] TODO: enforce password constraints
+password = input("Set password: ")
 
+request_account_reset= TQRequests.request_account_reset(activation_key, connection.email, password, connection.source_id)
+message = connection.send(request_account_reset)
+if not message.is_OK:
+    print(message.is_OK, message.content)
+    input("press any key to exit")
+    exit()
 
+print("\nresult status:{}\ncost:{}\nbalance:{}\ncontent:{}".format(message.is_OK,connection.cost,connection.balance, message.content))
 
+print("\n"+"-"*100)

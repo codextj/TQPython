@@ -2,8 +2,8 @@
 # email: contact@treasuryquants.com
 # Note: this software is provided "as-is" under the agreed terms of your account.
 #       For more information see https://treasuryquants.com/terms-of-services/
-import TQRequests
-import TQConnection
+
+from TQapis import TQRequests, TQConnection
 
 # API: risk_ladder
 # Explanation: It calculates ladder sensitivities of a saved trade for a given date.
@@ -17,7 +17,7 @@ import TQConnection
 #                    3) Delete the trade to clean up this example. (see workspace example for more)
 
 
-connection = TQConnection.Connection()
+connection = TQConnection.Connection(email="your.email@address.here", is_post=False)
 #
 # Check if we have connections
 #
@@ -56,12 +56,12 @@ market_swap_rates = TQRequests.request_function_price_vanilla_swap(
         , save_as = tradeId # "save_as" is optional for when you want to save your trade in your workspace. For example, for risking later on.
 )
 message = connection.send(market_swap_rates)
-print("result status:{} cost:{} balance:{} content:{}".format(message.is_OK,connection.cost,connection.balance, message.content))
+print("\nresult status:{}\ncost:{}\nbalance:{}\ncontent:{}".format(message.is_OK,connection.cost,connection.balance, message.content))
 
+print("\n"+"-"*100)
 
 if not message.is_OK:
         exit
-
 
 
 #
@@ -69,13 +69,15 @@ if not message.is_OK:
 #
 request_risk = TQRequests.request_function_risk_ladder(asof, tradeId)
 message = connection.send(request_risk)
-print("result status:{} cost:{} balance:{} content:{}".format(message.is_OK,connection.cost,connection.balance, message.content))
+print("\nresult status:{}\ncost:{}\nbalance:{}\ncontent:{}".format(message.is_OK,connection.cost,connection.balance, message.content))
 
-
+print("\n"+"-"*100)
 
 #
 # Step 3 - Delete the trade to clean up this example.
 #
 function_workspace_delete_file = TQRequests.request_function_workspace_delete_file(tradeId)
 message = connection.send(function_workspace_delete_file)
-print("result status:{} cost:{} balance:{} content:{}".format(message.is_OK,connection.cost,connection.balance, message.content))
+print("\nresult status:{}\ncost:{}\nbalance:{}\ncontent:{}".format(message.is_OK,connection.cost,connection.balance, message.content))
+
+print("\n"+"-"*100)

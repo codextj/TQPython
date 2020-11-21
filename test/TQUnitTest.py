@@ -1,7 +1,26 @@
-import TQRequests
-import os
-from TQConnection import Connection, Message
-from TQRequests import ParamBuilder
+"""
+Once you have registered your account through Treasury Quants API 
+(see python_example:TQ_example_account_create_account.py) and
+Installed TQapis package, You can run this script to Test
+that everything is working fine for your registered email
+
+On Success you will see below message:
+
+unit_describe OK
+unit_describe_element_pnl_predict OK   
+unit_market_fx_rates OK
+unit_market_swap_rates OK
+unit_pnl_attribute OK
+unit_pnl_predict New results generated!
+unit_price OK
+unit_price_vanilla_swap OK
+unit_risk_ladder OK
+unit_worspace OK
+"""
+
+import os, pathlib
+from TQapis.TQConnection import Connection, Message
+from TQapis.TQRequests import ParamBuilder
 
 
 class RequestBuilder:
@@ -320,3 +339,18 @@ class Runner:
             message = write_unit_file(new_result_file_path,result_section_tag, new_results, delimiter_char, comment_char)
             message.content = "New results generated!"
         return message
+
+
+def runtest(email):
+    # print(pathlib.Path(__file__).parent.absolute().joinpath("tests_files"))
+    runner = Runner(email)
+    return runner.run(pathlib.Path(__file__).parent.absolute().joinpath("tests_files"))
+
+
+if __name__ == "__main__":
+    # if nothing get's printed check cwd
+    # print(f"cwd: {os.getcwd()}")
+    email = input("Enter your registered email: ")
+    report = runtest(email)
+    for key, value  in report.items():
+        print(key, value)

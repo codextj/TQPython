@@ -2,8 +2,8 @@
 # email: contact@treasuryquants.com
 # Note: this software is provided "as-is" under the agreed terms of your account.
 #       For more information see https://treasuryquants.com/terms-of-services/
-import TQRequests
-import TQConnection
+
+from TQapis import TQRequests, TQConnection
 
 # API: price_vanilla_swap
 # Explanation: It prices a vanilla interest rate swap.
@@ -29,7 +29,7 @@ import TQConnection
 # About this example: In this example, we use the arguments above to price a vanilla swap.
 
 
-connection = TQConnection.Connection()
+connection = TQConnection.Connection(email="your.email@address.here", is_post=False)
 #
 # Check if we have connections
 #
@@ -64,5 +64,6 @@ market_swap_rates = TQRequests.request_function_price_vanilla_swap(
         #, save_as = 'test_ir_swap' # "save_as" is optional for when you want to save your trade in your workspace. For example, for risking later on.
 )
 message = connection.send(market_swap_rates)
-print("result status:{} cost:{} balance:{} content:{}".format(message.is_OK,connection.cost,connection.balance, message.content))
+print("\nresult status:{}\ncost:{}\nbalance:{}\ncontent:{}".format(message.is_OK,connection.cost,connection.balance, message.content))
 
+print("\n"+"-"*100)

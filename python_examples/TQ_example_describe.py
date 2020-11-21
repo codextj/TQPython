@@ -2,8 +2,8 @@
 # email: contact@treasuryquants.com
 # Note: this software is provided "as-is" under the agreed terms of your account.
 #       For more information see https://treasuryquants.com/terms-of-services/
-import TQRequests
-import TQConnection
+
+from TQapis import TQRequests, TQConnection
 
 # API: describe
 # Explanation: It lists and explains the APIs and the arguments that each API expects.
@@ -17,10 +17,7 @@ import TQConnection
 #
 
 
-
-
-
-connection = TQConnection.Connection()
+connection = TQConnection.Connection(email="your.email@address.here", is_post=False)
 #
 # Check if we have connections
 #
@@ -30,7 +27,6 @@ if not message.is_OK:
     print(message.is_OK, message.content)
     exit
 
-
 #
 # Get the list of all functions
 #
@@ -39,12 +35,14 @@ message_describe = connection.send(request_function_describe)
 if not message_describe.is_OK:
     print(message_describe.is_OK, message_describe.content)
     exit
-print("result status:{} cost:{} balance:{} content:{}".format(message.is_OK,connection.cost,connection.balance, message.content))
+print("\nresult status:{}\ncost:{}\nbalance:{}\ncontent:{}".format(message.is_OK,connection.cost,connection.balance, message.content))
+
+print("\n"+"-"*100)
 
 for key, description in message_describe.content.items():
     print("{}: {}".format(key, description))
 
-
+print("\n"+"-"*100)
 
 #
 # Get the list of all input arguments for each functions
@@ -57,5 +55,7 @@ for function_name, description in message_describe.content.items():
         exit
     print("Describe:{}".format(function_name)) # pass the name of the API as the argument
     for key, description in message.content.items():
-        print("{}: {}".format(key, description))
-    print('\n')
+        print("{}: {}".format(key, description), end="\n")
+    print('_'*100)
+
+print("\n"+"-"*100)
