@@ -14,12 +14,22 @@ Once you opened your account you would have ample free credit in your account to
 ## 2. Getting around the python files
 Here is a list of what you will find and a brief explanation of what each file is about.
 
+### TQapis
 | Files | Description |
 | ------ | ----------- |
 | TQConnection.py| This is the connection class that contains the HTTP protocol as well as the running account balance, etc.. |
-| TQParams.py | Contains all the functions that build the request parameters.  |
+| TQRequests.py | Contains all the functions that build the request parameters.  |
 | TQResponse.py  | The Response class that consumes the response store in XML|
 | TQConfig.py | Keeps configuration parameters that later on can be passed on from the argument line when you write your program.|
+
+### test
+| Files | Description |
+| ------ | ----------- |
+| TQUnitTest.py | Contains Runner Class which can be used to perform unit testing.  |
+
+### python_examples
+| Files | Description |
+| ------ | ----------- |
 | TQ_example_account_create_account.py    | Shows the steps of creating a new account.  |
 | TQ_example_account_reset_account.py    | Shows the steps in resetting password and/or your IP address. |
 | TQ_example_describe.py    | Shows the way to list all our API functions and how to run them.|
