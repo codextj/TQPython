@@ -3,8 +3,8 @@ Prepares TQ Request Instance with a configuration to hit
 Corresponding API endpoint for a request_Method.
 They replalce the key:value pair dictionary for each API with functions and arguments.
 
-Eg: 
-request_ip_return(): http://77.68.119.98/?function_name=ip_return
+Eg (GET method):
+request_ip_return(): http://operations.treasuryquants.com/?function_name=ip_return
 
 GitHub Description:
     Contains all the functions that build the request parameters.
@@ -64,6 +64,66 @@ def request_ip_return():
 # Account related function calls
 #
 
+
+
+
+#
+# This is the FIRST step of the two-step process for creating a new account.
+# For the second step see request_account_reset.
+#
+def request_account_create(email,password="", ip='127.0.0.1', callback_url="",
+                                                           is_test=False):
+    params = {"email": str(email),"password": str(password), 'ip':str(ip), 'url':str(callback_url), 'is_test':str(is_test)}
+    return ParamBuilder().build(params, function_name='account_create', needs_token=False)
+
+#
+# request for regeneration of the activation key, for either activating the account or resetting password
+#
+def request_account_send_activation_key(email, callback_url="", is_test=False):
+    params = {"email": str(email),  'url': str(callback_url), 'is_test': str(is_test)}
+    return ParamBuilder().build(params, function_name='account_send_activation_key', needs_token=False)
+
+
+#
+# request for activating an account using activation_key
+#
+def request_account_activate(email, activation_key, is_test=False):
+    params = {"email": str(email),  'activation_key': str(activation_key), 'is_test': str(is_test)}
+    return ParamBuilder().build(params, function_name='account_activate', needs_token=False)
+
+
+
+#
+# request for changing password.
+#
+def request_account_password_change(email, password,new_password, is_test=False):
+    params = {"email": str(email),  'password': str(password),  'new_password': str(new_password), 'is_test': str(is_test)}
+    return ParamBuilder().build(params, function_name='account_password_change', needs_token=False)
+
+
+
+#
+# request for changing IP.
+#
+def request_account_ip_change(email, password,new_ip, is_test=False):
+    params = {"email": str(email),  'password': str(password),  'new_ip': str(new_ip), 'is_test': str(is_test)}
+    return ParamBuilder().build(params, function_name='account_ip_change', needs_token=False)
+
+
+#
+# request for password reset
+#
+def request_account_password_reset(email, activation_key,new_password, is_test=False):
+    params = {"email": str(email),  'activation_key': str(activation_key),  'new_password': str(new_password), 'is_test': str(is_test)}
+    return ParamBuilder().build(params, function_name='account_password_reset', needs_token=False)
+
+
+
+#
+# General functions
+#
+
+
 #
 # requests for a new token. The expiry of the new token is inside the xml result for each and individual result.
 #
@@ -75,36 +135,6 @@ def request_account_token_create(email):
     params = {"email": email}
     return ParamBuilder().build(params, function_name='account_token_create', needs_token=False)
 
-
-#
-# This is the FIRST step of the two-step process for resetting your password/IP
-# In this step, you need to ask for an activation key that is associated with your email.
-#
-def request_account_send_activation_key(email):
-    params = {"email": email}
-    return ParamBuilder().build(params, function_name='account_send_activation_key', needs_token=False)
-
-
-#
-# This is the SECOND step of the two-step process for resetting your password/IP.
-#
-def request_account_reset(activation_key, email, password, ip):
-    params = {"email": email, 'activation_key': activation_key, 'password': password, 'ip': ip}
-    return ParamBuilder().build(params, function_name='account_reset', needs_token=False)
-
-
-#
-# This is the FIRST step of the two-step process for creating a new account.
-# For the second step see request_account_reset.
-#
-def request_account_create(email):
-    params = {"email": email}
-    return ParamBuilder().build(params, function_name='account_create', needs_token=False)
-
-
-#
-# General functions
-#
 
 def request_function_describe(item_name=""):
     params = {}
@@ -228,3 +258,11 @@ def request_function_pnl_predict(load_as, from_date, to_date):
 def request_function_pnl_attribute(load_as, from_date, to_date):
     params = {'load_as': load_as, 'from_date': from_date, 'to_date': to_date}
     return ParamBuilder().build(params, 'pnl_attribute')
+
+
+#
+# Depricated
+#
+def request_account_reset(activation_key, email, password, ip):
+    params = {"email": email, 'activation_key': activation_key, 'password': password, 'ip': ip}
+    return ParamBuilder().build(params, function_name='account_reset', needs_token=False)

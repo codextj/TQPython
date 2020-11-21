@@ -14,7 +14,7 @@ GitHub Description:
 
 import requests
 import datetime
-import TQConfig, TQResponse, TQRequests
+from TQapis import TQResponse, TQRequests
 
 
 class Message:
@@ -36,7 +36,7 @@ class Message:
 
 
 class Connection:
-    def __init__(self, email=TQConfig.email, is_post=TQConfig.is_http_post, url=TQConfig.url, minutes_to_expiry=1):
+    def __init__(self, email, is_post, url, minutes_to_expiry=1):
         """
         Initializes Connection Class object.
 

@@ -19,7 +19,13 @@ from TQapis import TQRequests, TQConnection
 #
 # Notes: if you want to see how to save a file, see the risk example.
 
-connection = TQConnection.Connection(email="your.email@address.here", is_post=False)
+#configuration for this file
+user_email="client.email@address.here"
+target_url="http://operations.treasuryquants.com"
+is_post=False # True = use POST method, False = use GET method
+
+
+connection = TQConnection.Connection(user_email,is_post,target_url)
 #
 # Check if we have connections
 #
@@ -27,7 +33,7 @@ request_ip_return = TQRequests.request_ip_return()
 message = connection.send(request_ip_return)
 if not message.is_OK:
     print(message.is_OK, message.content)
-    exit
+    exit()
 
 print("\nresult status:{}\ncost:{}\nbalance:{}\ncontent:{}".format(message.is_OK, connection.cost, connection.balance,
                                                               message.content))
