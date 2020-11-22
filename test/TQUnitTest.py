@@ -334,7 +334,7 @@ def run_test_single(root_folder, file_path,email,is_post, target_url):
 
 
 if __name__ == "__main__":
-    email = "shahram_alavian@yahoo.com"
+    email = "your.email@address.here"
     target_url="http://operations.treasuryquants.com"#<-this is your active email account
     is_post=True#<- True = use POST method and False = use GET method
 
