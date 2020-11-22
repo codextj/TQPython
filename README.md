@@ -20,7 +20,7 @@ Here is a list of what you will find and a brief explanation of what each file i
 | TQConnection.py| This is the connection class that contains the HTTP protocol as well as the running account balance, etc.. |
 | TQRequests.py | Contains all the functions that build the request parameters.  |
 | TQResponse.py  | The Response class that consumes the response store in XML|
-| TQConfig.py | Keeps configuration parameters that later on can be passed on from the argument line when you write your program.|
+
 
 ### test
 | Files | Description |
@@ -30,8 +30,7 @@ Here is a list of what you will find and a brief explanation of what each file i
 ### python_examples
 | Files | Description |
 | ------ | ----------- |
-| TQ_example_account_create_account.py    | Shows the steps of creating a new account.  |
-| TQ_example_account_reset_account.py    | Shows the steps in resetting password and/or your IP address. |
+| TQ_example_account_create_apis.py    | Shows the apis necessary to develop the account life cycle.  |
 | TQ_example_describe.py    | Shows the way to list all our API functions and how to run them.|
 | TQ_example_market_fx_rates.py    | Shows the steps of generating market spot FX and forward implied FX rates for a given date. |
 | TQ_example_market_swap_rates.py | Shows the steps of generating market implied swap rates for a given date.|
