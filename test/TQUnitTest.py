@@ -334,14 +334,12 @@ def run_test_single(root_folder, file_path,email,is_post, target_url):
 
 
 if __name__ == "__main__":
-    email = "shahram_alavian@yahoo.com"
-    target_url="http://operations.treasuryquants.com"#<-this is your active email account
-    is_post=True#<- True = use POST method and False = use GET method
+    email = "shahram_alavian@yahoo.com" #<- this is your active email account
+    target_url="http://operations.treasuryquants.com" #<- TreasuryQuants API is accessed from this URL
+    is_post=True #<- True = use POST method and False = use GET method
 
 
-    single_file_name="unit_pnl_attribute"#<- test a single file for debugging
-    folder=pathlib.Path(__file__).parent.absolute().joinpath("tests_files")#<- test all files for reporting'
-
+    folder=pathlib.Path(__file__).parent.absolute().joinpath("tests_files") #<- test all files for reporting'
     #
     # run all the files inside a folder
     #
@@ -350,6 +348,7 @@ if __name__ == "__main__":
     #
     # run a single test file
     #
+    single_file_name="unit_pnl_attribute" #<- test a single file for debugging
     report =  run_test_single(folder,single_file_name,email,is_post,target_url)
 
     for key, value  in report.items():
