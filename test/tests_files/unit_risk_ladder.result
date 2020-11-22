@@ -252,6 +252,4 @@ eur.ois.10865D=0.000000000000
 eur.ois.10957D=-271.556787466216
 eur.ois.11049D=-9.153586359469
 [result]
-test_ir_swap.xml=test_ir_swap.xml
-test_fx_forward.xml=test_fx_forward.xml
 

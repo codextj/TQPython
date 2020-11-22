@@ -18,7 +18,12 @@ from TQapis import TQRequests, TQConnection
 #                     We then run "account_reset".
 #
 
-connection = TQConnection.Connection()
+#configuration for this file
+user_email="client.email@address.here"
+target_url="http://operations.treasuryquants.com"
+is_post=False # True = use POST method, False = use GET method
+
+connection = TQConnection.Connection(user_email,is_post,target_url)
 #
 # Check if we have connections
 #

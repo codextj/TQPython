@@ -9,6 +9,4 @@ Theta=861.073911921456
 eur.libor6m=-137108.618635027728
 eur.ois=30.923014020475
 [result]
-test_ir_swap.xml=test_ir_swap.xml
-test_fx_forward.xml=test_fx_forward.xml
 

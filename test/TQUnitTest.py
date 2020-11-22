@@ -316,7 +316,7 @@ class Runner:
         return message
 
 
-def runtestAll(folder,email,is_post, target_url):
+def run_test_all(folder, email, is_post, target_url):
     # print(pathlib.Path(__file__).parent.absolute().joinpath("tests_files"))
     runner = Runner(email, is_post, target_url)
     return runner.run(folder)
@@ -334,8 +334,8 @@ def run_test_single(root_folder, file_path,email,is_post, target_url):
 
 
 if __name__ == "__main__":
-    email = "your.email@address.here"
-    target_url="http://operations.treasuryquants.com"#<-this is your active email account
+    email = "shahram_alavian@yahoo.com" #<- this is your active email account
+    target_url="http://operations.treasuryquants.com"#<-this is your target url
     is_post=True#<- True = use POST method and False = use GET method
 
 
@@ -345,12 +345,12 @@ if __name__ == "__main__":
     #
     # run all the files inside a folder
     #
-    # report = runtestAll(folder, email, is_post,target_url)
-    
+    report = run_test_all(folder, email, is_post, target_url)
+    for key, value  in report.items():
+        print(key, value)
     #
     # run a single test file
     #
     report =  run_test_single(folder,single_file_name,email,is_post,target_url)
-
     for key, value  in report.items():
         print(key, value)

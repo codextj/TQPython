@@ -5,6 +5,4 @@ Currency=eur
 Price=0.190965672358
 Currency=eur
 [result]
-test_ir_swap.xml=test_ir_swap.xml
-test_fx_forward.xml=test_fx_forward.xml
 
