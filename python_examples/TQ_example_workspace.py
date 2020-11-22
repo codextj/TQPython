@@ -22,6 +22,7 @@ from TQapis import TQRequests, TQConnection
 #configuration for this file
 user_email="client.email@address.here"
 target_url="http://operations.treasuryquants.com"
+
 is_post=False # True = use POST method, False = use GET method
 
 
