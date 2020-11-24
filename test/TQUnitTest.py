@@ -57,8 +57,13 @@ def read_unit_file(file_path, section_tag, delimiter, comment):
             #
             # a proper line to process
             #
-            if loc > 0:
-                line = line[:loc]
+            #has it got comment?
+            if comment in line:
+                line=line.split(comment)[0]
+            #empty line on the ledt side?
+            if line.rstrip().lstrip()=='':
+                continue
+
             if section_tag in line:
                 tag_name=""
                 if ':' in line:
@@ -234,15 +239,15 @@ if __name__ == "__main__":
     is_post=False#<- True = use POST method and False = use GET method
 
 
-    single_file_name="unit_describe"#<- test a single file for debugging
+    single_file_name="unit_price_vanilla_swap"#<- test a single file for debugging
     folder=pathlib.Path(__file__).parent.absolute().joinpath("tests_files")#<- test all files for reporting'
 
     #
     # run all the files inside a folder
     #
-    run_test_all(folder, email, is_post, target_url)
+    #run_test_all(folder, email, is_post, target_url)
 
     #
     # run a single test file
     #
-    #run_test_single(folder,single_file_name,email,is_post,target_url)
+    run_test_single(folder,single_file_name,email,is_post,target_url)

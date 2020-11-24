@@ -21,7 +21,7 @@ asof = "20201023" #as string
 
 [test]:to_date is before asof date
 function_name=market_fx_rates
-to_date=20211022  # as integer
+to_date=20200922  # as integer
 asof = "20201023" #as string
 base_currency=eur
 
