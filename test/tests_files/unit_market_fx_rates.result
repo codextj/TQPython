@@ -1,0 +1,22 @@
+[result]:default
+chf=1.068745311999
+eur=1.000000000000
+gbp=0.911476020717
+jpy=124.749323243691
+usd=1.192655865299
+
+[result]:to_date is missing
+to_date=Missing entry.
+
+[result]:asof is missing
+asof=Missing entry.
+
+[result]:base_currency is missing
+base_currency=Missing entry.
+
+[result]:to_date is before asof date
+base_currency=to_date should not be before asof
+
+[result]:currecy is unknown
+xyz=Not recognised.
+

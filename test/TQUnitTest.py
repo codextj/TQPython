@@ -239,15 +239,15 @@ if __name__ == "__main__":
     is_post=False#<- True = use POST method and False = use GET method
 
 
-    single_file_name="unit_price_vanilla_swap"#<- test a single file for debugging
+    single_file_name="unit_pnl_predict"#<- test a single file for debugging
     folder=pathlib.Path(__file__).parent.absolute().joinpath("tests_files")#<- test all files for reporting'
 
     #
     # run all the files inside a folder
     #
-    #run_test_all(folder, email, is_post, target_url)
+    run_test_all(folder, email, is_post, target_url)
 
     #
     # run a single test file
     #
-    run_test_single(folder,single_file_name,email,is_post,target_url)
+    #run_test_single(folder,single_file_name,email,is_post,target_url)

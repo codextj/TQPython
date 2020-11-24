@@ -34,6 +34,11 @@ function_name=pnl_attribute
 from_date=20201022
 to_date=20201023
 
+[test]:load_as is missing
+function_name=pnl_attribute
+from_date=20201022
+to_date=20201023
+
 [test]:file does not exist
 function_name=pnl_attribute
 load_as=thie_file_does_not_exist

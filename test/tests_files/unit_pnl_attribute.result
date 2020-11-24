@@ -11,9 +11,13 @@ eur.libor6m=-137108.618635027728
 eur.ois=30.923014020475
 
 [result]:missing load as
+load_as=is missing
+
+[result]:load_as is missing
+load_as=is missing
 
 [result]:file does not exist
-thie_file_does_not_exist= Error in reading file. Are you sure it exists?
+thie_file_does_not_exist=Error in reading file. Are you sure it exists?
 
 [result]:from_date is missing
 from_date=Missing entry.
@@ -22,13 +26,13 @@ from_date=Missing entry.
 to_date=Missing entry.
 
 [result]:from_date is after to_date
-null_vol_surface= does not exist.
+null_vol_surface=does not exist.
 
 [result]:from date not available
 from_date=It has an invalid value.
 
 [result]:to date not available
-null_vol_surface= does not exist.
+null_vol_surface=does not exist.
 
 [result]:delete the swap
 test_fx_forward.xml=test_fx_forward.xml

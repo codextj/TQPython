@@ -32,6 +32,10 @@ asof=20201022
 function_name=risk_ladder
 asof=20201022
 
+[test]: file does not exist
+function_name=risk_ladder
+load_as=this_file_does_not_exist
+asof=20201022
 
 
 [test]: asof is missing

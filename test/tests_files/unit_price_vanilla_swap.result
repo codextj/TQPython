@@ -1,0 +1,126 @@
+[result]:default - price a swap without saving
+Price=0.190965672358
+Currency=eur
+
+[result]:missing asof
+Price=-559338.718300711713
+Currency=eur
+
+[result]:missing type
+type=Missing entry.
+
+[result]:missing notional
+notional=Missing entry.
+
+[result]:missing trade_date
+trade_date=Missing entry.
+
+[result]:missing trade_maturity
+trade_maturity=Missing entry.
+
+[result]:missing index_id
+index_id=Missing entry.
+
+[result]:missing discount_id
+discount_id=Missing entry.
+
+[result]:missing floating_leg_period
+floating_leg_period=Missing entry.
+
+[result]:missing fixed_leg_period
+fixed_leg_period=Missing entry.
+
+[result]:missing floating_leg_daycount
+floating_leg_daycount=Missing entry.
+
+[result]:missing fixed_leg_daycount
+fixed_leg_daycount=Missing entry.
+
+[result]:missing spread
+spread=Missing entry.
+
+[result]:missing fixed_rate
+fixed_rate=Missing entry.
+
+[result]:missing is_payer
+is_payer=Missing entry.
+
+[result]:missing business_day_rule
+business_day_rule=Missing entry.
+
+[result]:missing business_centres
+business_centres=Missing entry.
+
+[result]:missing spot_lag_days
+Price=0.190965672358
+Currency=eur
+
+[result]:wrong asof
+asof=It is invalid.
+
+[result]:unavailable asof
+20501022=no market data for this date.
+
+[result]:wront type
+type='wrong_type' not recognised.
+
+[result]:invalid notional
+notional=It has an invalid value.
+
+[result]:invalid trade_date
+trade_date=Invalid value or format (YYYYMMDD).
+
+[result]:invalid trade_maturity
+trade_maturity=Value '30n' is not recognised.
+
+[result]:trade_maturity toolong
+Price=20823140.114766433835
+Currency=eur
+
+[result]:invalid index_id
+index_id=Libor curve is not recognised.
+
+[result]:invalid discount_id
+discount_id=Discount curve not recognised.
+
+[result]:invalid floating_leg_period
+floating_leg_period=Value '6n' is not recognised.
+
+[result]:floating_leg_period too large
+Price=-98272.988298894983
+Currency=eur
+
+[result]:invalid fixed_leg_period
+fixed_leg_period=Value '1t' is not recognised.
+
+[result]:fixed_leg_period too large
+Price=47.764702622328
+Currency=eur
+
+[result]:invalid floating_leg_daycount
+floating_leg_daycount=Value 'xyz/360' is not recognised.
+
+[result]:invalid fixed_leg_daycount
+fixed_leg_daycount=Value 'xyz/360' is not recognised.
+
+[result]:invalid spread
+spread=It has an invalid value.
+
+[result]:invalid fixed_rate
+fixed_rate=It has an invalid value.
+
+[result]:invalid is_payer
+is_payer=Invalid value 'maybe'
+
+[result]:invalid business_day_rule
+business_day_rule=Not recognised.
+
+[result]:invalid business_centres
+spot_lag_days=Invalid value.
+
+[result]:invalid spot_lag_days
+spot_lag_days=Invalid value.
+
+[result]:invalid spot_lag_days2
+spot_lag_days=Invalid value.
+

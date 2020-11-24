@@ -31,6 +31,10 @@ asof=20201022
 function_name=price
 asof=20201022
 
+[test]: file does not exist
+function_name=price
+load_as=this_file_does_not_exist
+asof=20201022
 
 
 [test]: asof is missing
