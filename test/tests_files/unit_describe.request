@@ -1,2 +1,10 @@
-[test]
+[test]:default
 function_name= describe
+
+[test]:element=pnl_predict
+function_name= describe
+element=pnl_predict
+
+[test]:unkown element
+function_name= describe
+element=unknown

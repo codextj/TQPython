@@ -1,4 +1,27 @@
-[test]
+[test]:default
 function_name=market_swap_rates
 asof=20201023
+currency=eur
+
+[test]:missing asof
+function_name=market_swap_rates
+currency=eur
+
+[test]:missing currency
+function_name=market_swap_rates
+asof=20201023
+
+[test]:unknown currency
+function_name=market_swap_rates
+asof=20201023
+currency=xyz
+
+[test]:unavialable date
+function_name=market_swap_rates
+asof=20301020
+currency=eur
+
+[test]:wrong date
+function_name=market_swap_rates
+asof=20191131
 currency=eur

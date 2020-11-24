@@ -1,0 +1,15 @@
+[result]:deafult
+account_create=Your email is now registered. An email with instructions was sent to 'dummy_email@yahoo.com'.  Please check your inbox/spam/junk mails folder.
+
+[result]:error in password
+account_create=Password contains invalid characters.
+
+[result]:password missing
+account_create=Your email is now registered. An email with instructions was sent to 'dummy_email@yahoo.com'.  Please check your inbox/spam/junk mails folder.
+
+[result]:email missing
+account_create=Key 'email' was missing
+
+[result]:url is missing
+account_create=Your email is now registered. An email with instructions was sent to 'dummy_email@yahoo.com'.  Please check your inbox/spam/junk mails folder.
+

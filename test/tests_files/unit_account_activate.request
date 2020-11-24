@@ -1,0 +1,16 @@
+[test]: default
+function_name= account_activate
+email="dummy_email@yahoo.com"
+activation_key="vezjlopfwtxceubwyc9ftkyaxs6byrq4etr0mvpjnmav7x09ilfqag"
+is_test=True
+
+
+[test]:email missing
+function_name= account_activate
+activation_key="vezjlopfwtxceubwyc9ftkyaxs6byrq4etr0mvpjnmav7x09ilfqag"
+is_test=True
+
+[test]:activation key is missing.
+function_name= account_activate
+email="dummy_email@yahoo.com"
+is_test=True

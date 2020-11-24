@@ -129,6 +129,8 @@ class Connection:
         Returns:
             Type[TQ Message], Message Object with Store Response (Error or Results)
         """
+        if result.text.lstrip()=='':
+            return Message(False, {'internal error':"Response was empty."})
         store = TQResponse.Store()
         store.fromXml(result.text)
         self.client_id = store.client_id

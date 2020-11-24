@@ -1,0 +1,6 @@
+[result]:default
+account_send_activation_key=An email with a new activation key was sent to: dummy_email@yahoo.com.
+
+[result]:email is missing
+account_send_activation_key=Key 'email' was missing
+

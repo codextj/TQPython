@@ -1,4 +1,4 @@
-[test]
+[test]: default - price a swap without saving
 function_name= price_vanilla_swap
 asof= 20201022
 type= ir_vanilla_swap
@@ -17,5 +17,878 @@ is_payer= False
 business_day_rule= modified_following  # See show_available api to see the various other options
 business_centres= "london,target"  # See show_available api to see the various other options
 spot_lag_days= 2
+# save_as is optional for when you want to save your trade in your workspace. For example for risking later on.
+#  save_as = test_ir_swap
+
+
+[test]: missing asof
+function_name= price_vanilla_swap
+type= ir_vanilla_swap
+notional= 100000000
+trade_date= 20201022
+trade_maturity= 30Y
+index_id= eur.libor6m  # See show_available api to see the various other options
+discount_id= eur.ois  # See show_available api to see the various other options
+floating_leg_period= 6M
+fixed_leg_period= 1y
+floating_leg_daycount= act/360  # See show_available api to see the various other options
+fixed_leg_daycount= 30/360  # See show_available api to see the various other options
+spread= 0
+fixed_rate= -0.000032181335  # You can take this number from the market_swap_rates API
+is_payer= False
+business_day_rule= modified_following  # See show_available api to see the various other options
+business_centres= "london,target"  # See show_available api to see the various other options
+spot_lag_days= 2
+# save_as is optional for when you want to save your trade in your workspace. For example for risking later on.
+#  save_as = test_ir_swap
+
+
+[test]: missing type
+function_name= price_vanilla_swap
+asof= 20201022
+notional= 100000000
+trade_date= 20201022
+trade_maturity= 30Y
+index_id= eur.libor6m  # See show_available api to see the various other options
+discount_id= eur.ois  # See show_available api to see the various other options
+floating_leg_period= 6M
+fixed_leg_period= 1y
+floating_leg_daycount= act/360  # See show_available api to see the various other options
+fixed_leg_daycount= 30/360  # See show_available api to see the various other options
+spread= 0
+fixed_rate= -0.000032181335  # You can take this number from the market_swap_rates API
+is_payer= False
+business_day_rule= modified_following  # See show_available api to see the various other options
+business_centres= "london,target"  # See show_available api to see the various other options
+spot_lag_days= 2
+# save_as is optional for when you want to save your trade in your workspace. For example for risking later on.
+#  save_as = test_ir_swap
+
+[test]: missing notional
+function_name= price_vanilla_swap
+asof= 20201022
+type= ir_vanilla_swap
+trade_date= 20201022
+trade_maturity= 30Y
+index_id= eur.libor6m  # See show_available api to see the various other options
+discount_id= eur.ois  # See show_available api to see the various other options
+floating_leg_period= 6M
+fixed_leg_period= 1y
+floating_leg_daycount= act/360  # See show_available api to see the various other options
+fixed_leg_daycount= 30/360  # See show_available api to see the various other options
+spread= 0
+fixed_rate= -0.000032181335  # You can take this number from the market_swap_rates API
+is_payer= False
+business_day_rule= modified_following  # See show_available api to see the various other options
+business_centres= "london,target"  # See show_available api to see the various other options
+spot_lag_days= 2
+# save_as is optional for when you want to save your trade in your workspace. For example for risking later on.
+#  save_as = test_ir_swap
+
+[test]: missing trade_date
+function_name= price_vanilla_swap
+asof= 20201022
+type= ir_vanilla_swap
+notional= 100000000
+trade_maturity= 30Y
+index_id= eur.libor6m  # See show_available api to see the various other options
+discount_id= eur.ois  # See show_available api to see the various other options
+floating_leg_period= 6M
+fixed_leg_period= 1y
+floating_leg_daycount= act/360  # See show_available api to see the various other options
+fixed_leg_daycount= 30/360  # See show_available api to see the various other options
+spread= 0
+fixed_rate= -0.000032181335  # You can take this number from the market_swap_rates API
+is_payer= False
+business_day_rule= modified_following  # See show_available api to see the various other options
+business_centres= "london,target"  # See show_available api to see the various other options
+spot_lag_days= 2
+# save_as is optional for when you want to save your trade in your workspace. For example for risking later on.
+#  save_as = test_ir_swap
+
+[test]: missing trade_maturity
+function_name= price_vanilla_swap
+asof= 20201022
+type= ir_vanilla_swap
+notional= 100000000
+trade_date= 20201022
+index_id= eur.libor6m  # See show_available api to see the various other options
+discount_id= eur.ois  # See show_available api to see the various other options
+floating_leg_period= 6M
+fixed_leg_period= 1y
+floating_leg_daycount= act/360  # See show_available api to see the various other options
+fixed_leg_daycount= 30/360  # See show_available api to see the various other options
+spread= 0
+fixed_rate= -0.000032181335  # You can take this number from the market_swap_rates API
+is_payer= False
+business_day_rule= modified_following  # See show_available api to see the various other options
+business_centres= "london,target"  # See show_available api to see the various other options
+spot_lag_days= 2
+# save_as is optional for when you want to save your trade in your workspace. For example for risking later on.
+#  save_as = test_ir_swap
+
+[test]: missing index_id
+function_name= price_vanilla_swap
+asof= 20201022
+type= ir_vanilla_swap
+notional= 100000000
+trade_date= 20201022
+trade_maturity= 30Y
+#index_id= eur.libor6m  # See show_available api to see the various other options
+discount_id= eur.ois  # See show_available api to see the various other options
+floating_leg_period= 6M
+fixed_leg_period= 1y
+floating_leg_daycount= act/360  # See show_available api to see the various other options
+fixed_leg_daycount= 30/360  # See show_available api to see the various other options
+spread= 0
+fixed_rate= -0.000032181335  # You can take this number from the market_swap_rates API
+is_payer= False
+business_day_rule= modified_following  # See show_available api to see the various other options
+business_centres= "london,target"  # See show_available api to see the various other options
+spot_lag_days= 2
+# save_as is optional for when you want to save your trade in your workspace. For example for risking later on.
+#  save_as = test_ir_swap
+
+[test]: missing discount_id
+function_name= price_vanilla_swap
+asof= 20201022
+type= ir_vanilla_swap
+notional= 100000000
+trade_date= 20201022
+trade_maturity= 30Y
+index_id= eur.libor6m  # See show_available api to see the various other options
+#discount_id= eur.ois  # See show_available api to see the various other options
+floating_leg_period= 6M
+fixed_leg_period= 1y
+floating_leg_daycount= act/360  # See show_available api to see the various other options
+fixed_leg_daycount= 30/360  # See show_available api to see the various other options
+spread= 0
+fixed_rate= -0.000032181335  # You can take this number from the market_swap_rates API
+is_payer= False
+business_day_rule= modified_following  # See show_available api to see the various other options
+business_centres= "london,target"  # See show_available api to see the various other options
+spot_lag_days= 2
+# save_as is optional for when you want to save your trade in your workspace. For example for risking later on.
+#  save_as = test_ir_swap
+
+
+[test]: missing floating_leg_period
+function_name= price_vanilla_swap
+asof= 20201022
+type= ir_vanilla_swap
+notional= 100000000
+trade_date= 20201022
+trade_maturity= 30Y
+index_id= eur.libor6m  # See show_available api to see the various other options
+discount_id= eur.ois  # See show_available api to see the various other options
+#floating_leg_period= 6M
+fixed_leg_period= 1y
+floating_leg_daycount= act/360  # See show_available api to see the various other options
+fixed_leg_daycount= 30/360  # See show_available api to see the various other options
+spread= 0
+fixed_rate= -0.000032181335  # You can take this number from the market_swap_rates API
+is_payer= False
+business_day_rule= modified_following  # See show_available api to see the various other options
+business_centres= "london,target"  # See show_available api to see the various other options
+spot_lag_days= 2
+# save_as is optional for when you want to save your trade in your workspace. For example for risking later on.
+#  save_as = test_ir_swap
+
+[test]: missing fixed_leg_period
+function_name= price_vanilla_swap
+asof= 20201022
+type= ir_vanilla_swap
+notional= 100000000
+trade_date= 20201022
+trade_maturity= 30Y
+index_id= eur.libor6m  # See show_available api to see the various other options
+discount_id= eur.ois  # See show_available api to see the various other options
+floating_leg_period= 6M
+#fixed_leg_period= 1y
+floating_leg_daycount= act/360  # See show_available api to see the various other options
+fixed_leg_daycount= 30/360  # See show_available api to see the various other options
+spread= 0
+fixed_rate= -0.000032181335  # You can take this number from the market_swap_rates API
+is_payer= False
+business_day_rule= modified_following  # See show_available api to see the various other options
+business_centres= "london,target"  # See show_available api to see the various other options
+spot_lag_days= 2
+# save_as is optional for when you want to save your trade in your workspace. For example for risking later on.
+#  save_as = test_ir_swap
+
+[test]: missing floating_leg_daycount
+function_name= price_vanilla_swap
+asof= 20201022
+type= ir_vanilla_swap
+notional= 100000000
+trade_date= 20201022
+trade_maturity= 30Y
+index_id= eur.libor6m  # See show_available api to see the various other options
+discount_id= eur.ois  # See show_available api to see the various other options
+floating_leg_period= 6M
+fixed_leg_period= 1y
+#floating_leg_daycount= act/360  # See show_available api to see the various other options
+fixed_leg_daycount= 30/360  # See show_available api to see the various other options
+spread= 0
+fixed_rate= -0.000032181335  # You can take this number from the market_swap_rates API
+is_payer= False
+business_day_rule= modified_following  # See show_available api to see the various other options
+business_centres= "london,target"  # See show_available api to see the various other options
+spot_lag_days= 2
+# save_as is optional for when you want to save your trade in your workspace. For example for risking later on.
+#  save_as = test_ir_swap
+
+[test]: missing fixed_leg_daycount
+function_name= price_vanilla_swap
+asof= 20201022
+type= ir_vanilla_swap
+notional= 100000000
+trade_date= 20201022
+trade_maturity= 30Y
+index_id= eur.libor6m  # See show_available api to see the various other options
+discount_id= eur.ois  # See show_available api to see the various other options
+floating_leg_period= 6M
+fixed_leg_period= 1y
+floating_leg_daycount= act/360  # See show_available api to see the various other options
+#fixed_leg_daycount= 30/360  # See show_available api to see the various other options
+spread= 0
+fixed_rate= -0.000032181335  # You can take this number from the market_swap_rates API
+is_payer= False
+business_day_rule= modified_following  # See show_available api to see the various other options
+business_centres= "london,target"  # See show_available api to see the various other options
+spot_lag_days= 2
+# save_as is optional for when you want to save your trade in your workspace. For example for risking later on.
+#  save_as = test_ir_swap
+
+[test]: missing spread
+function_name= price_vanilla_swap
+asof= 20201022
+type= ir_vanilla_swap
+notional= 100000000
+trade_date= 20201022
+trade_maturity= 30Y
+index_id= eur.libor6m  # See show_available api to see the various other options
+discount_id= eur.ois  # See show_available api to see the various other options
+floating_leg_period= 6M
+fixed_leg_period= 1y
+floating_leg_daycount= act/360  # See show_available api to see the various other options
+fixed_leg_daycount= 30/360  # See show_available api to see the various other options
+#spread= 0
+fixed_rate= -0.000032181335  # You can take this number from the market_swap_rates API
+is_payer= False
+business_day_rule= modified_following  # See show_available api to see the various other options
+business_centres= "london,target"  # See show_available api to see the various other options
+spot_lag_days= 2
+# save_as is optional for when you want to save your trade in your workspace. For example for risking later on.
+#  save_as = test_ir_swap
+
+[test]: missing fixed_rate
+function_name= price_vanilla_swap
+asof= 20201022
+type= ir_vanilla_swap
+notional= 100000000
+trade_date= 20201022
+trade_maturity= 30Y
+index_id= eur.libor6m  # See show_available api to see the various other options
+discount_id= eur.ois  # See show_available api to see the various other options
+floating_leg_period= 6M
+fixed_leg_period= 1y
+floating_leg_daycount= act/360  # See show_available api to see the various other options
+fixed_leg_daycount= 30/360  # See show_available api to see the various other options
+spread= 0
+#fixed_rate= -0.000032181335  # You can take this number from the market_swap_rates API
+is_payer= False
+business_day_rule= modified_following  # See show_available api to see the various other options
+business_centres= "london,target"  # See show_available api to see the various other options
+spot_lag_days= 2
+# save_as is optional for when you want to save your trade in your workspace. For example for risking later on.
+#  save_as = test_ir_swap
+
+[test]: missing is_payer
+function_name= price_vanilla_swap
+asof= 20201022
+type= ir_vanilla_swap
+notional= 100000000
+trade_date= 20201022
+trade_maturity= 30Y
+index_id= eur.libor6m  # See show_available api to see the various other options
+discount_id= eur.ois  # See show_available api to see the various other options
+floating_leg_period= 6M
+fixed_leg_period= 1y
+floating_leg_daycount= act/360  # See show_available api to see the various other options
+fixed_leg_daycount= 30/360  # See show_available api to see the various other options
+spread= 0
+fixed_rate= -0.000032181335  # You can take this number from the market_swap_rates API
+#is_payer= False
+business_day_rule= modified_following  # See show_available api to see the various other options
+business_centres= "london,target"  # See show_available api to see the various other options
+spot_lag_days= 2
+# save_as is optional for when you want to save your trade in your workspace. For example for risking later on.
+#  save_as = test_ir_swap
+
+[test]: missing business_day_rule
+function_name= price_vanilla_swap
+asof= 20201022
+type= ir_vanilla_swap
+notional= 100000000
+trade_date= 20201022
+trade_maturity= 30Y
+index_id= eur.libor6m  # See show_available api to see the various other options
+discount_id= eur.ois  # See show_available api to see the various other options
+floating_leg_period= 6M
+fixed_leg_period= 1y
+floating_leg_daycount= act/360  # See show_available api to see the various other options
+fixed_leg_daycount= 30/360  # See show_available api to see the various other options
+spread= 0
+fixed_rate= -0.000032181335  # You can take this number from the market_swap_rates API
+is_payer= False
+#business_day_rule= modified_following  # See show_available api to see the various other options
+business_centres= "london,target"  # See show_available api to see the various other options
+spot_lag_days= 2
+# save_as is optional for when you want to save your trade in your workspace. For example for risking later on.
+#  save_as = test_ir_swap
+
+[test]: missing business_centres
+function_name= price_vanilla_swap
+asof= 20201022
+type= ir_vanilla_swap
+notional= 100000000
+trade_date= 20201022
+trade_maturity= 30Y
+index_id= eur.libor6m  # See show_available api to see the various other options
+discount_id= eur.ois  # See show_available api to see the various other options
+floating_leg_period= 6M
+fixed_leg_period= 1y
+floating_leg_daycount= act/360  # See show_available api to see the various other options
+fixed_leg_daycount= 30/360  # See show_available api to see the various other options
+spread= 0
+fixed_rate= -0.000032181335  # You can take this number from the market_swap_rates API
+is_payer= False
+business_day_rule= modified_following  # See show_available api to see the various other options
+#business_centres= "london,target"  # See show_available api to see the various other options
+spot_lag_days= 2
+# save_as is optional for when you want to save your trade in your workspace. For example for risking later on.
+#  save_as = test_ir_swap
+
+[test]: missing spot_lag_days
+function_name= price_vanilla_swap
+asof= 20201022
+type= ir_vanilla_swap
+notional= 100000000
+trade_date= 20201022
+trade_maturity= 30Y
+index_id= eur.libor6m  # See show_available api to see the various other options
+discount_id= eur.ois  # See show_available api to see the various other options
+floating_leg_period= 6M
+fixed_leg_period= 1y
+floating_leg_daycount= act/360  # See show_available api to see the various other options
+fixed_leg_daycount= 30/360  # See show_available api to see the various other options
+spread= 0
+fixed_rate= -0.000032181335  # You can take this number from the market_swap_rates API
+is_payer= False
+business_day_rule= modified_following  # See show_available api to see the various other options
+business_centres= "london,target"  # See show_available api to see the various other options
+spot_lag_days= 2
+# save_as is optional for when you want to save your trade in your workspace. For example for risking later on.
+#  save_as = test_ir_swap
+
+
+[test]: wrong asof
+function_name= price_vanilla_swap
+asof= 20201032
+type= ir_vanilla_swap
+notional= 100000000
+trade_date= 20201022
+trade_maturity= 30Y
+index_id= eur.libor6m  # See show_available api to see the various other options
+discount_id= eur.ois  # See show_available api to see the various other options
+floating_leg_period= 6M
+fixed_leg_period= 1y
+floating_leg_daycount= act/360  # See show_available api to see the various other options
+fixed_leg_daycount= 30/360  # See show_available api to see the various other options
+spread= 0
+fixed_rate= -0.000032181335  # You can take this number from the market_swap_rates API
+is_payer= False
+business_day_rule= modified_following  # See show_available api to see the various other options
+business_centres= "london,target"  # See show_available api to see the various other options
+spot_lag_days= 2
+# save_as is optional for when you want to save your trade in your workspace. For example for risking later on.
+#  save_as = test_ir_swap
+
+[test]: unavailable asof
+function_name= price_vanilla_swap
+asof= 20501022
+type= ir_vanilla_swap
+notional= 100000000
+trade_date= 20201022
+trade_maturity= 30Y
+index_id= eur.libor6m  # See show_available api to see the various other options
+discount_id= eur.ois  # See show_available api to see the various other options
+floating_leg_period= 6M
+fixed_leg_period= 1y
+floating_leg_daycount= act/360  # See show_available api to see the various other options
+fixed_leg_daycount= 30/360  # See show_available api to see the various other options
+spread= 0
+fixed_rate= -0.000032181335  # You can take this number from the market_swap_rates API
+is_payer= False
+business_day_rule= modified_following  # See show_available api to see the various other options
+business_centres= "london,target"  # See show_available api to see the various other options
+spot_lag_days= 2
+# save_as is optional for when you want to save your trade in your workspace. For example for risking later on.
+#  save_as = test_ir_swap
+
+[test]: wront type
+function_name= price_vanilla_swap
+asof= 20201022
+type= wrong_type #ir_vanilla_swap
+notional= 100000000
+trade_date= 20201022
+trade_maturity= 30Y
+index_id= eur.libor6m  # See show_available api to see the various other options
+discount_id= eur.ois  # See show_available api to see the various other options
+floating_leg_period= 6M
+fixed_leg_period= 1y
+floating_leg_daycount= act/360  # See show_available api to see the various other options
+fixed_leg_daycount= 30/360  # See show_available api to see the various other options
+spread= 0
+fixed_rate= -0.000032181335  # You can take this number from the market_swap_rates API
+is_payer= False
+business_day_rule= modified_following  # See show_available api to see the various other options
+business_centres= "london,target"  # See show_available api to see the various other options
+spot_lag_days= 2
+# save_as is optional for when you want to save your trade in your workspace. For example for risking later on.
+#  save_as = test_ir_swap
+
+[test]: invalid notional
+function_name= price_vanilla_swap
+asof= 20201022
+type= ir_vanilla_swap
+notional= char#100000000
+trade_date= 20201022
+trade_maturity= 30Y
+index_id= eur.libor6m  # See show_available api to see the various other options
+discount_id= eur.ois  # See show_available api to see the various other options
+floating_leg_period= 6M
+fixed_leg_period= 1y
+floating_leg_daycount= act/360  # See show_available api to see the various other options
+fixed_leg_daycount= 30/360  # See show_available api to see the various other options
+spread= 0
+fixed_rate= -0.000032181335  # You can take this number from the market_swap_rates API
+is_payer= False
+business_day_rule= modified_following  # See show_available api to see the various other options
+business_centres= "london,target"  # See show_available api to see the various other options
+spot_lag_days= 2
+# save_as is optional for when you want to save your trade in your workspace. For example for risking later on.
+#  save_as = test_ir_swap
+
+
+[test]: invalid trade_date
+function_name= price_vanilla_swap
+asof= 20201022
+type= ir_vanilla_swap
+notional= 100000000
+trade_date=20201032 #20201022
+trade_maturity= 30Y
+index_id= eur.libor6m  # See show_available api to see the various other options
+discount_id= eur.ois  # See show_available api to see the various other options
+floating_leg_period= 6M
+fixed_leg_period= 1y
+floating_leg_daycount= act/360  # See show_available api to see the various other options
+fixed_leg_daycount= 30/360  # See show_available api to see the various other options
+spread= 0
+fixed_rate= -0.000032181335  # You can take this number from the market_swap_rates API
+is_payer= False
+business_day_rule= modified_following  # See show_available api to see the various other options
+business_centres= "london,target"  # See show_available api to see the various other options
+spot_lag_days= 2
+# save_as is optional for when you want to save your trade in your workspace. For example for risking later on.
+#  save_as = test_ir_swap
+
+[test]: invalid trade_maturity
+function_name= price_vanilla_swap
+asof= 20201022
+type= ir_vanilla_swap
+notional= 100000000
+trade_date=20201022
+trade_maturity=30N# 30Y
+index_id= eur.libor6m  # See show_available api to see the various other options
+discount_id= eur.ois  # See show_available api to see the various other options
+floating_leg_period= 6M
+fixed_leg_period= 1y
+floating_leg_daycount= act/360  # See show_available api to see the various other options
+fixed_leg_daycount= 30/360  # See show_available api to see the various other options
+spread= 0
+fixed_rate= -0.000032181335  # You can take this number from the market_swap_rates API
+is_payer= False
+business_day_rule= modified_following  # See show_available api to see the various other options
+business_centres= "london,target"  # See show_available api to see the various other options
+spot_lag_days= 2
+# save_as is optional for when you want to save your trade in your workspace. For example for risking later on.
+#  save_as = test_ir_swap
+
+
+[test]:  trade_maturity toolong
+function_name= price_vanilla_swap
+asof= 20201022
+type= ir_vanilla_swap
+notional= 100000000
+trade_date=20201022
+trade_maturity=300Y# 30Y
+index_id= eur.libor6m  # See show_available api to see the various other options
+discount_id= eur.ois  # See show_available api to see the various other options
+floating_leg_period= 6M
+fixed_leg_period= 1y
+floating_leg_daycount= act/360  # See show_available api to see the various other options
+fixed_leg_daycount= 30/360  # See show_available api to see the various other options
+spread= 0
+fixed_rate= -0.000032181335  # You can take this number from the market_swap_rates API
+is_payer= False
+business_day_rule= modified_following  # See show_available api to see the various other options
+business_centres= "london,target"  # See show_available api to see the various other options
+spot_lag_days= 2
+# save_as is optional for when you want to save your trade in your workspace. For example for risking later on.
+#  save_as = test_ir_swap
+
+[test]:  invalid index_id
+function_name= price_vanilla_swap
+asof= 20201022
+type= ir_vanilla_swap
+notional= 100000000
+trade_date=20201022
+trade_maturity=30Y
+index_id= eur.unknown# eur.libor6m  # See show_available api to see the various other options
+discount_id= eur.ois  # See show_available api to see the various other options
+floating_leg_period= 6M
+fixed_leg_period= 1y
+floating_leg_daycount= act/360  # See show_available api to see the various other options
+fixed_leg_daycount= 30/360  # See show_available api to see the various other options
+spread= 0
+fixed_rate= -0.000032181335  # You can take this number from the market_swap_rates API
+is_payer= False
+business_day_rule= modified_following  # See show_available api to see the various other options
+business_centres= "london,target"  # See show_available api to see the various other options
+spot_lag_days= 2
+# save_as is optional for when you want to save your trade in your workspace. For example for risking later on.
+#  save_as = test_ir_swap
+
+
+[test]:  invalid discount_id
+function_name= price_vanilla_swap
+asof= 20201022
+type= ir_vanilla_swap
+notional= 100000000
+trade_date=20201022
+trade_maturity=30Y
+index_id= eur.libor6m  # See show_available api to see the various other options
+discount_id= eur.unknown #eur.ois  # See show_available api to see the various other options
+floating_leg_period= 6M
+fixed_leg_period= 1y
+floating_leg_daycount= act/360  # See show_available api to see the various other options
+fixed_leg_daycount= 30/360  # See show_available api to see the various other options
+spread= 0
+fixed_rate= -0.000032181335  # You can take this number from the market_swap_rates API
+is_payer= False
+business_day_rule= modified_following  # See show_available api to see the various other options
+business_centres= "london,target"  # See show_available api to see the various other options
+spot_lag_days= 2
+# save_as is optional for when you want to save your trade in your workspace. For example for risking later on.
+#  save_as = test_ir_swap
+
+[test]:  invalid floating_leg_period
+function_name= price_vanilla_swap
+asof= 20201022
+type= ir_vanilla_swap
+notional= 100000000
+trade_date=20201022
+trade_maturity=30Y
+index_id= eur.libor6m  # See show_available api to see the various other options
+discount_id= eur.ois  # See show_available api to see the various other options
+floating_leg_period=6N# 6M
+fixed_leg_period= 1y
+floating_leg_daycount= act/360  # See show_available api to see the various other options
+fixed_leg_daycount= 30/360  # See show_available api to see the various other options
+spread= 0
+fixed_rate= -0.000032181335  # You can take this number from the market_swap_rates API
+is_payer= False
+business_day_rule= modified_following  # See show_available api to see the various other options
+business_centres= "london,target"  # See show_available api to see the various other options
+spot_lag_days= 2
+# save_as is optional for when you want to save your trade in your workspace. For example for risking later on.
+#  save_as = test_ir_swap
+
+
+[test]:  floating_leg_period too large
+function_name= price_vanilla_swap
+asof= 20201022
+type= ir_vanilla_swap
+notional= 100000000
+trade_date=20201022
+trade_maturity=30Y
+index_id= eur.libor6m  # See show_available api to see the various other options
+discount_id= eur.ois  # See show_available api to see the various other options
+floating_leg_period=600M# 6M
+fixed_leg_period= 1y
+floating_leg_daycount= act/360  # See show_available api to see the various other options
+fixed_leg_daycount= 30/360  # See show_available api to see the various other options
+spread= 0
+fixed_rate= -0.000032181335  # You can take this number from the market_swap_rates API
+is_payer= False
+business_day_rule= modified_following  # See show_available api to see the various other options
+business_centres= "london,target"  # See show_available api to see the various other options
+spot_lag_days= 2
+# save_as is optional for when you want to save your trade in your workspace. For example for risking later on.
+#  save_as = test_ir_swap
+
+
+
+[test]:  invalid fixed_leg_period
+function_name= price_vanilla_swap
+asof= 20201022
+type= ir_vanilla_swap
+notional= 100000000
+trade_date=20201022
+trade_maturity=30Y
+index_id= eur.libor6m  # See show_available api to see the various other options
+discount_id= eur.ois  # See show_available api to see the various other options
+floating_leg_period=6M
+fixed_leg_period= 1T#1y
+floating_leg_daycount= act/360  # See show_available api to see the various other options
+fixed_leg_daycount= 30/360  # See show_available api to see the various other options
+spread= 0
+fixed_rate= -0.000032181335  # You can take this number from the market_swap_rates API
+is_payer= False
+business_day_rule= modified_following  # See show_available api to see the various other options
+business_centres= "london,target"  # See show_available api to see the various other options
+spot_lag_days= 2
+# save_as is optional for when you want to save your trade in your workspace. For example for risking later on.
+#  save_as = test_ir_swap
+
+
+[test]:  fixed_leg_period too large
+function_name= price_vanilla_swap
+asof= 20201022
+type= ir_vanilla_swap
+notional= 100000000
+trade_date=20201022
+trade_maturity=30Y
+index_id= eur.libor6m  # See show_available api to see the various other options
+discount_id= eur.ois  # See show_available api to see the various other options
+floating_leg_period=6M
+fixed_leg_period= 100y#1y
+floating_leg_daycount= act/360  # See show_available api to see the various other options
+fixed_leg_daycount= 30/360  # See show_available api to see the various other options
+spread= 0
+fixed_rate= -0.000032181335  # You can take this number from the market_swap_rates API
+is_payer= False
+business_day_rule= modified_following  # See show_available api to see the various other options
+business_centres= "london,target"  # See show_available api to see the various other options
+spot_lag_days= 2
+# save_as is optional for when you want to save your trade in your workspace. For example for risking later on.
+#  save_as = test_ir_swap
+
+
+[test]:  invalid floating_leg_daycount
+function_name= price_vanilla_swap
+asof= 20201022
+type= ir_vanilla_swap
+notional= 100000000
+trade_date=20201022
+trade_maturity=30Y
+index_id= eur.libor6m  # See show_available api to see the various other options
+discount_id= eur.ois  # See show_available api to see the various other options
+floating_leg_period=6M
+fixed_leg_period= 1y
+floating_leg_daycount=xyz/360 # act/360  # See show_available api to see the various other options
+fixed_leg_daycount= 30/360  # See show_available api to see the various other options
+spread= 0
+fixed_rate= -0.000032181335  # You can take this number from the market_swap_rates API
+is_payer= False
+business_day_rule= modified_following  # See show_available api to see the various other options
+business_centres= "london,target"  # See show_available api to see the various other options
+spot_lag_days= 2
+# save_as is optional for when you want to save your trade in your workspace. For example for risking later on.
+#  save_as = test_ir_swap
+
+
+[test]:  invalid fixed_leg_daycount
+function_name= price_vanilla_swap
+asof= 20201022
+type= ir_vanilla_swap
+notional= 100000000
+trade_date=20201022
+trade_maturity=30Y
+index_id= eur.libor6m  # See show_available api to see the various other options
+discount_id= eur.ois  # See show_available api to see the various other options
+floating_leg_period=6M
+fixed_leg_period= 1y
+floating_leg_daycount=act/360  # See show_available api to see the various other options
+fixed_leg_daycount=xyz/360 #  30/360  # See show_available api to see the various other options
+spread= 0
+fixed_rate= -0.000032181335  # You can take this number from the market_swap_rates API
+is_payer= False
+business_day_rule= modified_following  # See show_available api to see the various other options
+business_centres= "london,target"  # See show_available api to see the various other options
+spot_lag_days= 2
+# save_as is optional for when you want to save your trade in your workspace. For example for risking later on.
+#  save_as = test_ir_swap
+
+
+[test]:  invalid spread
+function_name= price_vanilla_swap
+asof= 20201022
+type= ir_vanilla_swap
+notional= 100000000
+trade_date=20201022
+trade_maturity=30Y
+index_id= eur.libor6m  # See show_available api to see the various other options
+discount_id= eur.ois  # See show_available api to see the various other options
+floating_leg_period=6M
+fixed_leg_period= 1y
+floating_leg_daycount=act/360  # See show_available api to see the various other options
+fixed_leg_daycount= 30/360  # See show_available api to see the various other options
+spread= 0xyz# 0
+fixed_rate= -0.000032181335  # You can take this number from the market_swap_rates API
+is_payer= False
+business_day_rule= modified_following  # See show_available api to see the various other options
+business_centres= "london,target"  # See show_available api to see the various other options
+spot_lag_days= 2
+# save_as is optional for when you want to save your trade in your workspace. For example for risking later on.
+#  save_as = test_ir_swap
+
+
+[test]:  invalid fixed_rate
+function_name= price_vanilla_swap
+asof= 20201022
+type= ir_vanilla_swap
+notional= 100000000
+trade_date=20201022
+trade_maturity=30Y
+index_id= eur.libor6m  # See show_available api to see the various other options
+discount_id= eur.ois  # See show_available api to see the various other options
+floating_leg_period=6M
+fixed_leg_period= 1y
+floating_leg_daycount=act/360  # See show_available api to see the various other options
+fixed_leg_daycount=30/360  # See show_available api to see the various other options
+spread=  0
+fixed_rate= 0xyz#  -0.000032181335  # You can take this number from the market_swap_rates API
+is_payer= False
+business_day_rule= modified_following  # See show_available api to see the various other options
+business_centres= "london,target"  # See show_available api to see the various other options
+spot_lag_days= 2
+# save_as is optional for when you want to save your trade in your workspace. For example for risking later on.
+#  save_as = test_ir_swap
+
+
+
+[test]:  invalid is_payer
+function_name= price_vanilla_swap
+asof= 20201022
+type= ir_vanilla_swap
+notional= 100000000
+trade_date=20201022
+trade_maturity=30Y
+index_id= eur.libor6m  # See show_available api to see the various other options
+discount_id= eur.ois  # See show_available api to see the various other options
+floating_leg_period=6M
+fixed_leg_period= 1y
+floating_leg_daycount=act/360  # See show_available api to see the various other options
+fixed_leg_daycount= 30/360  # See show_available api to see the various other options
+spread=  0
+fixed_rate=  -0.000032181335  # You can take this number from the market_swap_rates API
+is_payer= maybe#False
+business_day_rule= modified_following  # See show_available api to see the various other options
+business_centres= "london,target"  # See show_available api to see the various other options
+spot_lag_days= 2
+# save_as is optional for when you want to save your trade in your workspace. For example for risking later on.
+#  save_as = test_ir_swap
+
+
+[test]:  invalid business_day_rule
+function_name= price_vanilla_swap
+asof= 20201022
+type= ir_vanilla_swap
+notional= 100000000
+trade_date=20201022
+trade_maturity=30Y
+index_id= eur.libor6m  # See show_available api to see the various other options
+discount_id= eur.ois  # See show_available api to see the various other options
+floating_leg_period=6M
+fixed_leg_period= 1y
+floating_leg_daycount=act/360  # See show_available api to see the various other options
+fixed_leg_daycount= 30/360  # See show_available api to see the various other options
+spread=  0
+fixed_rate=  -0.000032181335  # You can take this number from the market_swap_rates API
+is_payer= False
+business_day_rule=unknown# modified_following  # See show_available api to see the various other options
+business_centres= "london,target"  # See show_available api to see the various other options
+spot_lag_days= 2
+# save_as is optional for when you want to save your trade in your workspace. For example for risking later on.
+#  save_as = test_ir_swap
+
+[test]:  invalid business_centres
+function_name= price_vanilla_swap
+asof= 20201022
+type= ir_vanilla_swap
+notional= 100000000
+trade_date=20201022
+trade_maturity=30Y
+index_id= eur.libor6m  # See show_available api to see the various other options
+discount_id= eur.ois  # See show_available api to see the various other options
+floating_leg_period=6M
+fixed_leg_period= 1y
+floating_leg_daycount=act/360  # See show_available api to see the various other options
+fixed_leg_daycount=30/360  # See show_available api to see the various other options
+spread=  0
+fixed_rate=  -0.000032181335  # You can take this number from the market_swap_rates API
+is_payer= False
+business_day_rule=modified_following  # See show_available api to see the various other options
+business_centres=others# "london,target"  # See show_available api to see the various other options
+spot_lag_days= 2
+# save_as is optional for when you want to save your trade in your workspace. For example for risking later on.
+#  save_as = test_ir_swap
+
+
+[test]:  invalid spot_lag_days
+function_name= price_vanilla_swap
+asof= 20201022
+type= ir_vanilla_swap
+notional= 100000000
+trade_date=20201022
+trade_maturity=30Y
+index_id= eur.libor6m  # See show_available api to see the various other options
+discount_id= eur.ois  # See show_available api to see the various other options
+floating_leg_period=6M
+fixed_leg_period= 1y
+floating_leg_daycount=act/360  # See show_available api to see the various other options
+fixed_leg_daycount=#  30/360  # See show_available api to see the various other options
+spread=  0
+fixed_rate=  -0.000032181335  # You can take this number from the market_swap_rates API
+is_payer= False
+business_day_rule=modified_following  # See show_available api to see the various other options
+business_centres="london,target"  # See show_available api to see the various other options
+spot_lag_days= 5d#2
+# save_as is optional for when you want to save your trade in your workspace. For example for risking later on.
+#  save_as = test_ir_swap
+
+
+[test]:  invalid spot_lag_days2
+function_name= price_vanilla_swap
+asof= 20201022
+type= ir_vanilla_swap
+notional= 100000000
+trade_date=20201022
+trade_maturity=30Y
+index_id= eur.libor6m  # See show_available api to see the various other options
+discount_id= eur.ois  # See show_available api to see the various other options
+floating_leg_period=6M
+fixed_leg_period= 1y
+floating_leg_daycount=act/360  # See show_available api to see the various other options
+fixed_leg_daycount=#  30/360  # See show_available api to see the various other options
+spread=  0
+fixed_rate=  -0.000032181335  # You can take this number from the market_swap_rates API
+is_payer= False
+business_day_rule=modified_following  # See show_available api to see the various other options
+business_centres="london,target"  # See show_available api to see the various other options
+spot_lag_days= -2#2
 # save_as is optional for when you want to save your trade in your workspace. For example for risking later on.
 #  save_as = test_ir_swap

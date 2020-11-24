@@ -1,4 +1,4 @@
-[result]
+[result]:default
 book=Books a trade. It has the same input as the trade's pricer. Please refer to the price to see the input descriptions.
 describe=Describes the usage of functions and their input format.
 market_fx_rates=Provides the FX rates for the end of the request business day. It covers only the currencies currently covered.
@@ -11,4 +11,12 @@ price_vanilla_swap=Prices a single currency vanilla swap.
 risk_ladder=Performs a full risk ladder on a trade that has already been saved/booked.
 show_available=Provides all the options available for for given element. Examples are: market data dates, day-counts, business centers, etc..
 workspace=Lists or delete your saved files. ('list','all') to list or ('delete', <filename>) to delete files.
+
+[result]:element=pnl_predict
+from_date=[date] - Initial date for which the sensitivities are calculated.
+load_as=[string] - Reference name of the trade that has already been saved.
+to_date=[date] - Next date for which the PnL is predicted.
+
+[result]:unkown element
+unknown=This element is not implemented.
 

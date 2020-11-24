@@ -1,0 +1,9 @@
+[result]:default
+account_activate=Account activated.
+
+[result]:email missing
+account_activate=Key 'email' was missing
+
+[result]:activation key is missing.
+account_activate=Key 'activation_key' was missing
+

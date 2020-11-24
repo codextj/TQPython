@@ -1,4 +1,4 @@
-[test]
+[test]:create swap and save it
 function_name= price_vanilla_swap
 asof= 20201022
 type= ir_vanilla_swap
@@ -21,13 +21,60 @@ spot_lag_days= 2
 save_as = temp_test_ir_swap_id
 
 
-[test]
-function_name=pnl_attribute
+
+[test]:calculate the pnl attribute
+function_name=pnl_predict
 load_as=temp_test_ir_swap_id
 from_date=20201022
 to_date=20201023
 
 
-[test]
+[test]:missing load as
+function_name=pnl_predict
+from_date=20201022
+to_date=20201023
+
+[test]:file does not exist
+function_name=pnl_predict
+load_as=thie_file_does_not_exist
+from_date=20201022
+to_date=20201023
+
+[test]:from_date is missing
+function_name=pnl_predict
+load_as=temp_test_ir_swap_id
+to_date=20201023
+
+
+[test]:to_date is missing
+function_name=pnl_predict
+load_as=temp_test_ir_swap_id
+from_date=20201022
+
+
+[test]:from_date is after to_date
+function_name=pnl_predict
+load_as=temp_test_ir_swap_id
+from_date=20201024
+to_date=20201023
+
+
+
+[test]:from date not available
+function_name=pnl_predict
+load_as=temp_test_ir_swap_id
+from_date=10201022
+to_date=20201023
+
+
+[test]:to date not available
+function_name=pnl_predict
+load_as=temp_test_ir_swap_id
+from_date=20201022
+to_date=20501023
+
+
+
+[test]: delete the swap
 function_name=workspace
 delete=temp_test_ir_swap_id

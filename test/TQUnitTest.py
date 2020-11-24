@@ -10,133 +10,8 @@ from TQapis.TQConnection import Connection, Message
 from TQapis.TQRequests import ParamBuilder
 
 
-class RequestBuilder:
-    def make_request(self, param, function_name):
-        return ParamBuilder().build(param, function_name)
-
-    def validate_mandatory(self, required_arguments, param):
-
-        missing_arguments = []
-        for argument in required_arguments:
-            if argument not in param:
-                missing_arguments.append(argument)
-        if len(missing_arguments) > 0:
-            error_message = "Following mandatory arguments are missing:"
-            i = 0
-            for item in missing_arguments:
-                if i > 0:
-                    error_message += ", "
-                error_message += item
-                i += 1
-            error_message += "."
-            return Message(False, error_message)
-        return Message(True, "")
-
-
-class ValidatorDescribe(RequestBuilder):
-    def validate(self, param):
-        return Message(True, "")
-
-
-class ValidatorShowAvailable(RequestBuilder):
-    _required_arguments = ["element"]
-
-    def validate(self, param):
-        return self.validate_mandatory(self._required_arguments, param)
-
-
-class ValidatorWorkSpace(RequestBuilder):
-    def validate(self, param):
-        if 'list' in param:
-            if param['list'] != 'all':
-                return Message(False, "Param should contain {'list':'all'}")
-        elif 'delete' in param:
-            if param['delete'] == '':
-                return Message(False, "key 'delete' had not file name value")
-        else:
-            return Message(False, "Neither 'list' nor 'delete' found in the param dictionary")
-        return Message(True, "")
-
-
-class ValidatorMarketSwapRates(RequestBuilder):
-    _required_arguments = ["asof", "currency"]
-
-    def validate(self, param):
-        return self.validate_mandatory(self._required_arguments, param)
-
-
-class ValidatorMarketFXRates(RequestBuilder):
-    _required_arguments = ["asof", "to_date", "base_currency"]
-
-    def validate(self, param):
-        return self.validate_mandatory(self._required_arguments, param)
-
-
-class ValidatorPriceVanillaSwap(RequestBuilder):
-    _required_arguments = [
-        "asof"
-        , "type"
-        , "notional"
-        , "trade_date"
-        , "trade_maturity"
-        , "index_id"
-        , "discount_id"
-        , "floating_leg_period"
-        , "fixed_leg_period"
-        , "floating_leg_daycount"
-        , "fixed_leg_daycount"
-        , "fixed_rate"
-        , "is_payer"
-        , "spread"
-        , "business_day_rule"
-        , "business_centres"
-        , "spot_lag_days"]
-
-    def validate(self, param):
-        return self.validate_mandatory(self._required_arguments, param)
-
-
-class ValidatorPriceFXForward(RequestBuilder):
-    _required_arguments = [
-        "asof"
-        , "type"
-        , "trade_date"
-        , "trade_expiry"
-        , "pay_amount"
-        , "pay_currency"
-        , "receive_amount"
-        , "receive_currency"]
-
-    def validate(self, param):
-        return self.validate_mandatory(self._required_arguments, param)
-
-
-class ValidatorPrice(RequestBuilder):
-    _required_arguments = ['asof', 'load_as']
-
-    def validate(self, param):
-        return self.validate_mandatory(self._required_arguments, param)
-
-
-class ValidatorRiskLadder(RequestBuilder):
-    _required_arguments = ['asof', 'load_as']
-
-    def validate(self, param):
-        return self.validate_mandatory(self._required_arguments, param)
-
-
-class ValidatorPnLPredict(RequestBuilder):
-    _required_arguments = ['load_as', 'from_date', 'to_date']
-
-    def validate(self, param):
-        return self.validate_mandatory(self._required_arguments, param)
-
-
-class ValidatorPnLAttribute(RequestBuilder):
-    _required_arguments = ['load_as', 'from_date', 'to_date']
-
-    def validate(self, param):
-        return self.validate_mandatory(self._required_arguments, param)
+def make_request( param, function_name):
+    return ParamBuilder().build(param, function_name)
 
 
 def delete_file(result_new_file_path):
@@ -150,13 +25,13 @@ def delete_file(result_new_file_path):
 def write_unit_file(file_path,section_tag, params, delimiter_char, comment_char):
     try:
         writefile = open(file_path, "w")
-        for param in params:
-            line = section_tag+"\n"
+        for name, param in params:
+            line = section_tag+":"+name+"\n"
             writefile.write(line)
             for key, value in param.items():
-                line = key + delimiter_char + value + "\n"
+                line = key.lstrip()+ delimiter_char + value + "\n"
                 writefile.write(line)
-        writefile.write("\n")
+            writefile.write("\n")
         writefile.close()
         return Message(True, "")
     except Exception as e:
@@ -185,8 +60,11 @@ def read_unit_file(file_path, section_tag, delimiter, comment):
             if loc > 0:
                 line = line[:loc]
             if section_tag in line:
+                tag_name=""
+                if ':' in line:
+                    tag_name=line.split(':')[1].lstrip().rstrip().replace('\n','')
                 param = dict()
-                params.append(param)
+                params.append((tag_name,param))
                 continue
 
             if line.find(delimiter)==-1:
@@ -217,19 +95,24 @@ def read_unit_file(file_path, section_tag, delimiter, comment):
 
 class Runner:
     def __init__(self, email,is_post,target_url):
-        self.__param_factory = {
-            'describe': ValidatorDescribe()
-            , 'market_fx_rates': ValidatorMarketFXRates()
-            , 'show_available': ValidatorShowAvailable()
-            , 'workspace': ValidatorWorkSpace()
-            , 'market_swap_rates': ValidatorMarketSwapRates()
-            , 'pnl_attribute': ValidatorPnLAttribute()
-            , 'pnl_predict': ValidatorPnLPredict()
-            , 'price': ValidatorPrice()
-            , 'price_fx_forward': ValidatorPriceFXForward()
-            , 'price_vanilla_swap': ValidatorPriceVanillaSwap()
-            , 'risk_ladder': ValidatorRiskLadder()
-        }
+        self.__param_factory = [
+            'describe'
+            , 'account_password_change'
+            , 'account_ip_change'
+            , 'account_create'
+            , 'account_send_activation_key'
+            , 'account_activate'
+            , 'market_fx_rates'
+            , 'show_available'
+            , 'workspace'
+            , 'market_swap_rates'
+            , 'pnl_attribute'
+            , 'pnl_predict'
+            , 'price'
+            , 'price_fx_forward'
+            , 'price_vanilla_swap'
+            , 'risk_ladder'
+        ]
         self.connection = Connection(email,is_post,target_url)
 
     def validate(self, params):
@@ -238,16 +121,16 @@ class Runner:
         function_name = params['function_name']
         if function_name not in self.__param_factory:
             return Message(False, "function_name '" + function_name + "' is not recognised.")
-        param_builder = self.__param_factory[function_name]
-        message = param_builder.validate(params)
-        if not message.is_OK:
-            return message
+        # param_builder = self.__param_factory[function_name]
+        # message = param_builder.validate(params)
+        # if not message.is_OK:
+        #     return message
         return Message(True, "")
 
     def send(self, params):
         function_name = params['function_name']
-        param_builder = self.__param_factory[function_name]
-        request = param_builder.make_request(params, function_name)
+        #param_builder = self.__param_factory[function_name]
+        request = make_request(params, function_name)
 
         message = self.connection.send(request)
         return message
@@ -275,6 +158,7 @@ class Runner:
             if len(message.content) > 0:
                 status_result = message.content
             report[test_file_name] = status_result
+            print ("{}:{}".format(test_file_name,status_result))
         return report
 
     def execute_unit_test(self, root_folder, test_file_name, request_extension="request", result_extension="result", result_new_extension="result_new"):
@@ -287,27 +171,36 @@ class Runner:
         result_file_path = os.path.join(root_folder, test_file_name + "." + result_extension)
         result_new_file_path = os.path.join(root_folder, test_file_name + "." + result_new_extension)
 
-        message, params = read_unit_file(request_file_path,test_section_tag, delimiter_char, comment_char)
+        message, names_with_params = read_unit_file(request_file_path,test_section_tag, delimiter_char, comment_char)
+
         result_news=list()
         if not message.is_OK:
             return message
 
-        for param in params:
+        for name,param in names_with_params:
             message = self.validate(param)
             if not message.is_OK:
                 return message
 
             message = self.send(param)
+            return_values=dict()
+            return_values= self.connection.response.results
             if not message.is_OK:
-                return message
+                return_values = self.connection.response.errors
 
-            results = self.connection.response.results
-            result_news.append(results)
+            return_values_clean=dict()
+            for key, value in  return_values.items():
+                return_values_clean[key]=value.rstrip().lstrip()
+
+            result_news.append((name,return_values_clean))
             message = delete_file(result_new_file_path)
             if not message.is_OK:
                 return message
 
+
+
         message, base_results = read_unit_file(result_file_path,result_section_tag, delimiter_char, comment_char)
+
         if (len(base_results) == 0):
             message = write_unit_file(result_file_path,result_section_tag, result_news, delimiter_char, comment_char)
         elif base_results != result_news:
@@ -329,28 +222,27 @@ def run_test_single(root_folder, file_path,email,is_post, target_url):
     message=runner.execute_unit_test(root_folder,file_path)
     if len(message.content) > 0:
         status_result = message.content
+    print(file_path, status_result)
     report={file_path:status_result}
     return report
 
 
 if __name__ == "__main__":
-    email = "your.email@address.here" #<- this is your active email account
-    target_url="http://operations.treasuryquants.com"#<-this is your target url
-    is_post=True#<- True = use POST method and False = use GET method
+    email = "shahram_alavian@yahoo.com" #<- this is your active email account
+    #target_url="http://operations.treasuryquants.com"#<-this is your target url
+    target_url="http://192.168.1.179:8080"
+    is_post=False#<- True = use POST method and False = use GET method
 
 
-    single_file_name="unit_pnl_attribute"#<- test a single file for debugging
+    single_file_name="unit_describe"#<- test a single file for debugging
     folder=pathlib.Path(__file__).parent.absolute().joinpath("tests_files")#<- test all files for reporting'
 
     #
     # run all the files inside a folder
     #
-    report = run_test_all(folder, email, is_post, target_url)
-    for key, value  in report.items():
-        print(key, value)
+    run_test_all(folder, email, is_post, target_url)
+
     #
     # run a single test file
     #
-    report =  run_test_single(folder,single_file_name,email,is_post,target_url)
-    for key, value  in report.items():
-        print(key, value)
+    #run_test_single(folder,single_file_name,email,is_post,target_url)

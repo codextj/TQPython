@@ -1,4 +1,4 @@
-[test]
+[test]: create a swap and save it
 function_name= price_vanilla_swap
 asof= 20201022
 type= ir_vanilla_swap
@@ -21,12 +21,33 @@ spot_lag_days= 2
 save_as = temp_test_ir_swap_id
 
 
-[test]
+[test]: price the trade
 function_name=price
 load_as=temp_test_ir_swap_id
 asof=20201022
 
 
-[test]
+[test]: load_as is missing
+function_name=price
+asof=20201022
+
+
+
+[test]: asof is missing
+function_name=price
+load_as=temp_test_ir_swap_id
+
+
+[test]: as of is invalid date
+function_name=price
+load_as=temp_test_ir_swap_id
+asof=20201032
+
+[test]: asof is not available
+function_name=price
+load_as=temp_test_ir_swap_id
+asof=20501022
+
+[test]: delete the swap
 function_name=workspace
 delete=temp_test_ir_swap_id

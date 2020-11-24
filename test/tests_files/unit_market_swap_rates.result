@@ -1,4 +1,4 @@
-[result]
+[result]:default
 1Y=0.000000000000
 2Y=-0.005139688103
 3Y=-0.005063416044
@@ -39,4 +39,19 @@
 38Y=-0.000460099527
 39Y=-0.000518472603
 40Y=-0.000576770043
+
+[result]:missing asof
+asof=Missing entry.
+
+[result]:missing currency
+currency=Missing entry.
+
+[result]:unknown currency
+xyz= Not recognised.
+
+[result]:unavialable date
+20301020= no market data for this date.
+
+[result]:wrong date
+asof=It is invalid.
 

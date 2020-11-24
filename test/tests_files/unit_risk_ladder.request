@@ -1,4 +1,4 @@
-[test]
+[test]: create the swao and save it
 function_name= price_vanilla_swap
 asof= 20201022
 type= ir_vanilla_swap
@@ -21,12 +21,34 @@ spot_lag_days= 2
 save_as = temp_test_ir_swap_id
 
 
-[test]
+
+[test]: risk the trade
 function_name=risk_ladder
 load_as=temp_test_ir_swap_id
 asof=20201022
 
 
-[test]
+[test]: load_as is missing
+function_name=risk_ladder
+asof=20201022
+
+
+
+[test]: asof is missing
+function_name=risk_ladder
+load_as=temp_test_ir_swap_id
+
+
+[test]: as of is invalid date
+function_name=risk_ladder
+load_as=temp_test_ir_swap_id
+asof=20201032
+
+[test]: asof is not available
+function_name=risk_ladder
+load_as=temp_test_ir_swap_id
+asof=20501022
+
+[test]:  delete the file
 function_name=workspace
 delete=temp_test_ir_swap_id

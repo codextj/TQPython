@@ -1,8 +1,24 @@
-[result]
+[result]:create a swap and save it
 Price=0.190965672358
 Currency=eur
-[result]
+
+[result]:price the trade
 Price=0.190965672358
 Currency=eur
-[result]
+
+[result]:load_as is missing
+
+[result]:asof is missing
+Price=-559338.718300711713
+Currency=eur
+
+[result]:as of is invalid date
+asof=It is invalid.
+
+[result]:asof is not available
+20501022= no market data for this date.
+
+[result]:delete the swap
+test_fx_forward.xml=test_fx_forward.xml
+test_ir_swap.xml=test_ir_swap.xml
 

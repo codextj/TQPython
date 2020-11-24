@@ -1,0 +1,29 @@
+[test]: deafult
+function_name= account_create
+email="dummy_email@yahoo.com"
+password="password1234213"
+url="https://www.yoursite.com"
+is_test=True
+
+[test]:error in password
+function_name= account_create
+email="dummy_email@yahoo.com"
+password="password,123421"
+url="https://www.yoursite.com"
+is_test=True
+
+[test]:password missing
+function_name= account_create
+email="dummy_email@yahoo.com"
+url="https://www.yoursite.com"
+is_test=True
+
+[test]:email missing
+function_name= account_create
+url="https://www.yoursite.com"
+is_test=True
+
+[test]:url is missing
+function_name= account_create
+email="dummy_email@yahoo.com"
+is_test=True
