@@ -62,7 +62,6 @@ if not message.is_OK:
 # 3) it returns the activation key.
 #
 
-user_email = "noreply@treasuryquants.com"  # <-need to replace this with your email so you can see the email being sent
 user_ip = '127.0.0.1'  # this is the IP that the client's requests are coming to TQ. This can be changed later
 user_password = "user_password"  # this can be changed later
 callback_url = ""  # the email will  show url/?email=...&activation_token=....
@@ -86,7 +85,6 @@ print("result status:{} cost:{} balance:{} content:{}".format(message.is_OK, con
 # account_send_activation_key: Client asks for the activation key to be resent
 #############################################################
 #
-user_email = "noreply@treasuryquants.com"  # <-need to replace this with your email so you can see the email being sent
 callback_url = ""  # the email will  show url/?email=...&activation_token=....
 
 # For below, True means that account will not be effected
@@ -110,7 +108,6 @@ print("result status:{} cost:{} balance:{} content:{}".format(message.is_OK, con
 #############################################################
 #
 
-user_email = "noreply@treasuryquants.com"  # <-need to replace this with your email so you can see the email being sent
 activation_key = "-ctlzzkb4pcj32f_hwgirdsexfgoiyewmhul2jxi4ibgvgdtpyrufq"
 
 # For below, True means that account will not be effected
@@ -135,7 +132,6 @@ print("result status:{} cost:{} balance:{} content:{}".format(message.is_OK, con
 # their current password
 #############################################################
 #
-user_email = "noreply@treasuryquants.com"
 password = "corresponding_password"
 new_password = "corresponding_password"  # <-by keeping the same as current we can run this repeatedly.
 # For below, True means that account will not be effected
@@ -157,7 +153,6 @@ print("result status:{} cost:{} balance:{} content:{}".format(message.is_OK, con
 # their current password
 #############################################################
 #
-user_email = "need.to.use@existing.email"  # <-if you use this email it will return with email/password error.
 password = "corresponding_password"
 new_ip = "127.0.0.1"  # this is the ip where the requests are originated
 # For below, True means that account will not be effected
@@ -182,7 +177,6 @@ print("result status:{} cost:{} balance:{} content:{}".format(message.is_OK, con
 # account_send_activation_key - Step 1: Request for an activation Key.
 #############################################################
 #
-user_email = "noreply@treasuryquants.com"  # <-need to replace this with your email so you can see the email being sent
 callback_url = ""  # the email will  show url/?email=...&activation_token=....
 
 # For below, True means that account will not be effected
@@ -204,7 +198,6 @@ print("result status:{} cost:{} balance:{} content:{}".format(message.is_OK, con
 # account_password_reset - Step 2: use activation key to reset the password.
 #############################################################
 #
-user_email = "noreply@treasuryquants.com"  # <-need to replace this with your email so you can see the email being sent
 activation_key = "-ctlzzkb4pcj32f_hwgirdsexfgoiyewmhul2jxi4ibgvgdtpyrufq"
 new_password = "newpassword"
 # For below, True means that account will not be effected
