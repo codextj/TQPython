@@ -2,9 +2,8 @@
 Price=0.190965672358
 Currency=eur
 
-[result]:missing asof
-Price=-559338.718300711713
-Currency=eur
+[result]:asof not available
+20501022=no market data for this date.
 
 [result]:missing type
 type=Missing entry.

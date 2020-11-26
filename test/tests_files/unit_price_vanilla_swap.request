@@ -21,8 +21,9 @@ spot_lag_days= 2
 #  save_as = test_ir_swap
 
 
-[test]: missing asof
+[test]:  asof not available
 function_name= price_vanilla_swap
+asof= 20501022
 type= ir_vanilla_swap
 notional= 100000000
 trade_date= 20201022

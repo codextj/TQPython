@@ -2,12 +2,6 @@
 Price=0.190965672358
 Currency=eur
 
-[result]:list all the files and see the file we have saved
-test_fx_forward.xml=test_fx_forward.xml
-temp_test_ir_swap_id.xml=temp_test_ir_swap_id.xml
-test_ir_swap.xml=test_ir_swap.xml
-
 [result]:delete the file we have saved.
-test_fx_forward.xml=test_fx_forward.xml
-test_ir_swap.xml=test_ir_swap.xml
+temp_test_ir_swap_id=deleted!
 

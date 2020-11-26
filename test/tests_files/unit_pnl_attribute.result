@@ -26,15 +26,14 @@ from_date=Missing entry.
 to_date=Missing entry.
 
 [result]:from_date is after to_date
-null_vol_surface=does not exist.
+from_date=no market data for this date.
 
 [result]:from date not available
-from_date=It has an invalid value.
+from_date=no market data for this date.
 
 [result]:to date not available
-null_vol_surface=does not exist.
+to_date=no market data for this date.
 
 [result]:delete the swap
-test_fx_forward.xml=test_fx_forward.xml
-test_ir_swap.xml=test_ir_swap.xml
+temp_test_ir_swap_id=deleted!
 

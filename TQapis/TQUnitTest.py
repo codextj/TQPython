@@ -1,10 +1,3 @@
-"""
-Once you have registered your account through Treasury Quants API 
-(see python_example:TQ_example_account_apis.py) and
-Installed TQapis package, You can run this script to Test
-that everything is working fine for your registered email.
-"""
-
 import os, pathlib
 from TQapis.TQConnection import Connection, Message
 from TQapis.TQRequests import ParamBuilder
@@ -232,22 +225,3 @@ def run_test_single(root_folder, file_path,email,is_post, target_url):
     return report
 
 
-if __name__ == "__main__":
-    email = "shahram_alavian@yahoo.com" #<- this is your active email account
-    #target_url="http://operations.treasuryquants.com"#<-this is your target url
-    target_url="http://192.168.1.179:8080"
-    is_post=False#<- True = use POST method and False = use GET method
-
-
-    single_file_name="unit_pnl_predict"#<- test a single file for debugging
-    folder=pathlib.Path(__file__).parent.absolute().joinpath("tests_files")#<- test all files for reporting'
-
-    #
-    # run all the files inside a folder
-    #
-    run_test_all(folder, email, is_post, target_url)
-
-    #
-    # run a single test file
-    #
-    #run_test_single(folder,single_file_name,email,is_post,target_url)

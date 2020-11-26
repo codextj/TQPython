@@ -277,6 +277,5 @@ from_date=no market data for this date.
 to_date=no market data for this date.
 
 [result]:delete the swap
-test_fx_forward.xml=test_fx_forward.xml
-test_ir_swap.xml=test_ir_swap.xml
+temp_test_ir_swap_id=deleted!
 

@@ -20,9 +20,11 @@ spot_lag_days= 2
 # save_as is optional for when you want to save your trade in your workspace. For example for risking later on.
 save_as = temp_test_ir_swap_id
 
-[test]: list all the files and see the file we have saved
-function_name=workspace
-list=all
+# the test below will break if your account already have other files
+# the function will list all the files in your account and not just the one created above
+#[test]: list all the files and see the file we have saved
+#function_name=workspace
+#list=all
 
 [test]: delete the file we have saved.
 function_name=workspace
