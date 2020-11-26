@@ -157,8 +157,22 @@ class Connection:
         try:
             headers = {"Content-type": "application/x-www-form-urlencoded", "Accept": "text/plain"}
             result = requests.post(url=self.url, headers=headers, data=param_dictionary)
-            # currently request turns the second post to get. So we post redirect ourselves
-            result = requests.post(url=result.url, headers=headers, data=param_dictionary)
+            #
+            # treat the redirect, if any.
+            #
+            # currently request library turns the second post to get. So we post redirect ourselves
+            result_url=result.url
+            self_url=self.url
+            if not result_url.endswith('/'):
+                result_url+='/'
+            if not self_url.endswith('/'):
+                self_url+='/'
+
+            if result_url!=result_url: # redirect
+                result = requests.post(url=result.url, headers=headers, data=param_dictionary)
+            #
+            #
+            #
             return self.__result_to_message(result)
         except Exception as e:
             self.cost = 0
