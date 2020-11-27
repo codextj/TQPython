@@ -27,6 +27,8 @@ Next, download/clone the python code from here.
 
 
 ## Running the Examples 
+you have an active account and your IP is now registered with your account.
+
 You are now ready to run each of the examples separately.
 
 At the top of each example you can see the following statement:
@@ -61,8 +63,8 @@ Here is a list of examples and a brief explanation of what they are.
 ## What can we do better?
 Any comments, feedback, question? just drop us a line.
 
-<p align="left"><a href="https://treasuryquants.com/"> <img src="https://github.com/treasuryquants/examples/raw/main/assets/logoBlackSmall.png" width="300">
-<p align="left">
-Email: <a href="mailto:contact@treasuryquants.com">contact@treasuryquants.com</a><br>
-Website: <a href="https://treasuryquants.com/" target="_blank">TreasuryQuants.com</a><br>
+<p align="left"><a href="https://treasuryquants.com/"> <img src="https://github.com/treasuryquants/examples/raw/main/assets/logoBlackSmall.png" width="300"></a></p>
+<p align="left"></p>
+<p>Email: <a href="mailto:contact@treasuryquants.com">contact@treasuryquants.com</a></p>
+<p>Website: <a href="https://treasuryquants.com/" target="_blank">TreasuryQuants.com</a></p>
 <p align="left"><a href="https://www.linkedin.com/company/treasury-quants/"><img src="https://github.com/treasuryquants/examples/raw/main/assets/linkedIn.png" width="35"></a></p>
