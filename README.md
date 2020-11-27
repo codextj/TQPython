@@ -1,31 +1,43 @@
 <p><img src="https://github.com/treasuryquants/examples/raw/main/assets/MainPic2.png" width="1100"></p>
 
 ***
-# Python APIs
-This is a set of examples in Python showing how to use our APIs. It covers all that we offer.
-
+# Python API Examples
+This branch is a set of examples and unit_tests in python to help you get up and running quickly.
+ 
 Before you start, the most important step is to ensure that you have an account. This is where most people get into issues. Contrary to most websites, you create your account using the API themselves. So all you need to open your account are these APIs, themselves. Just head straight to *TQ_example_account_create_account.py* to open your new account.
 
-## 1. Open Your New Account
-Once you opened your account you would have ample free credit in your account to get up the curve. Free top-ups will continue periodically to ensure those with small and moderate use will be able to use our services for free.
+## Open Your New Account
+If you do not have an account with us already, You need to open a new account.
+
+You have two options:
+1) You can use our Excel example from here to open an account yourself following the instruction.
+2) You email us (contact@treasuryquants.com) your public IP address of the machine you will be using, we will open an account for you. Sending you an email with it is done. Here is a link to help you with your IP address (https://www.showmyip.com).
+
+Armed with an active account we are now ready to get started. 
+
+## Install TQapis
+
+Before running any code you need to install **TQapis** package:
+
+    pip install TQapis
+
+you can see more information on this package at https://pypi.org/project/TQapis
+Next, download/clone the python code from here.
+
+
+## Running the Examples 
+You are now ready to run each of the examples separately.
+
+At the top of each example you can see the following statement:
+
+    user_email="client.email@address.here"
+
+Replace the quotation with your email instead and run the example.
+
  
-
-  
 ## 2. Getting around the python files
-Here is a list of what you will find and a brief explanation of what each file is about.
 
-### TQapis
-| Files | Description |
-| ------ | ----------- |
-| TQConnection.py| This is the connection class that contains the HTTP protocol as well as the running account balance, etc.. |
-| TQRequests.py | Contains all the functions that build the request parameters.  |
-| TQResponse.py  | The Response class that consumes the response store in XML|
-
-
-### test
-| Files | Description |
-| ------ | ----------- |
-| TQUnitTest.py | Contains Runner Class which can be used to perform unit testing.  |
+Here is a list of examples and a brief explanation of what they are.
 
 ### python_examples
 | Files | Description |
@@ -42,6 +54,7 @@ Here is a list of what you will find and a brief explanation of what each file i
 | TQ_example_market_pnl_attribute.py | Shows the steps of calculating the pnl attribute of a saved trade between two dates.|
 | TQ_example_show_available.py | Shows list of all options available for each input data like business centers, day-count basis, etc.|
 | TQ_example_workspace.py | Shows list of all the saved file and delete the one you ask.|
+| TQ_example_unit_test.py | Shows how you can run unit tests. Files are split as *.request and *.response. Use them a template. Take a look at each set and you can create many more. |
 
 <a name="what_can_we_do_better"></a>
 ## What can we do better?

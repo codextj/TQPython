@@ -1,0 +1,4 @@
+[test]:default
+function_name=market_swap_rates
+asof=20201023
+currency=eur

@@ -1,0 +1,11 @@
+[result]:create a swap and save it
+Price=0.190965672358
+Currency=eur
+
+[result]:price the trade
+Price=0.190965672358
+Currency=eur
+
+[result]:delete the swap
+temp_test_ir_swap_id=deleted!
+

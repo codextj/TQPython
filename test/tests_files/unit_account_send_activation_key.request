@@ -1,8 +1,0 @@
-[test]:default
-function_name= account_send_activation_key
-email="dummy_email@yahoo.com"
-is_test=True
-
-[test]:email is missing
-function_name= account_send_activation_key
-is_test=True
