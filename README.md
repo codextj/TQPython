@@ -7,11 +7,11 @@ This branch is a set of examples and unit_tests in python to help you get up and
 Before you start, the most important step is to ensure that you have an account. This is where most people get into issues. Contrary to most websites, you create your account using the API themselves. So all you need to open your account are these APIs, themselves. Just head straight to *TQ_example_account_create_account.py* to open your new account.
 
 ## Open Your New Account
-If you do not have an account with us already, You need to open a new account.
+If you do not have an account with us already, You need to open a new one.
 
 You have two options:
-1) You can use our Excel example from here to open an account yourself following the instruction.
-2) You email us (contact@treasuryquants.com) your public IP address of the machine you will be using, we will open an account for you. Sending you an email with it is done. Here is a link to help you with your IP address (https://www.showmyip.com).
+1) You can use our Excel example from https://github.com/treasuryquants/TQExcel to open an account yourself following the instruction.
+2) You email us (contact@treasuryquants.com) your public IP address of the machine you will be using, we will open an account for you. You will receive an email when it is done. Here is a link to help you with your IP address (https://www.showmyip.com).
 
 Armed with an active account we are now ready to get started. 
 
@@ -21,7 +21,8 @@ Before running any code you need to install **TQapis** package:
 
     pip install TQapis
 
-you can see more information on this package at https://pypi.org/project/TQapis
+You can see more information about this package at https://pypi.org/project/TQapis
+
 Next, download/clone the python code from here.
 
 
@@ -35,11 +36,11 @@ At the top of each example you can see the following statement:
 Replace the quotation with your email instead and run the example.
 
  
-## 2. Getting around the python files
+## Getting Around the Python Files
 
 Here is a list of examples and a brief explanation of what they are.
 
-### python_examples
+
 | Files | Description |
 | ------ | ----------- |
 | TQ_example_account_create_apis.py    | Shows the apis necessary to develop the account life cycle.  |
